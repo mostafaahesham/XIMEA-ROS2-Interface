@@ -41,7 +41,7 @@ class SSP(SSPConfig):
             
     def calc_crc(_crc,data):
 
-        crc = crc16.mcrf4xx(bytes(data),0xFFFF).to_bytes(2,"big")
+        crc = crc16.mcrf4xx(bytes(data),0xFFFF).to_bytes(2,"little")
         return crc[0], crc[1] 
     
     def check_frame(_chk,frame):
@@ -88,7 +88,7 @@ class SSP(SSPConfig):
             _dpkt.check_frame(frame)
             data_len = frame[_dpkt.idxDATA_LEN]
             return {
-                # "flag_s":frame[_dpkt.idxSTART_FLAG],
+                "flag_s":frame[_dpkt.idxSTART_FLAG],
                 "dest":frame[_dpkt.idxDEST_ADDR],
                 "src":frame[_dpkt.idxSRC_ADDR],
                 "cmd":frame[_dpkt.idxCMD_ID],
@@ -96,5 +96,5 @@ class SSP(SSPConfig):
                 "data":frame[_dpkt.idxDATA_START:_dpkt.idxDATA_START + data_len],
                 "crc_0":frame[_dpkt.idxCRC_0],
                 "crc_1":frame[_dpkt.idxCRC_1],
-                # "flag_e":frame[_dpkt.idxEND_FLAG],
+                "flag_e":frame[_dpkt.idxEND_FLAG],
             }

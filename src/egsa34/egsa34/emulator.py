@@ -5,6 +5,7 @@ import sys
 import os
 import time
 import random
+import threading
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
@@ -17,14 +18,16 @@ class Emulator(Node,SSP,LogLevel):
         super().__init__('emulator')
         SSP.__init__(_emu)
         LogLevel.__init__(_emu)
+        
+        _emu.addr = addr
     
         _emu.uart_port_0 = '/dev/ttyUSB0'
         _emu.uart_port_1 = '/dev/ttyUSB1'
         _emu.baud_rate = 115200
         _emu.parity =  'N'
-        _emu.timeout = 0.1
+        _emu.timeout = None
         
-        _emu.addr = addr
+        _emu.rand = [random.randint(0,255) for _ in range(8)]
         
         _emu.log('info',f'subsystem <{hex(_emu.addr)}> up and running')
         
@@ -66,28 +69,38 @@ class Emulator(Node,SSP,LogLevel):
             
             ser.write(frame)
             data_len = frame[_cs.idxDATA_LEN]
-            sent = {
-                # "flag_s":frame[_cs.idxSTART_FLAG],
-                "dest":frame[_cs.idxDEST_ADDR],
-                "src":frame[_cs.idxSRC_ADDR],
-                "cmd":frame[_cs.idxCMD_ID],
-                "data_len":frame[_cs.idxDATA_LEN],
-                "data":frame[_cs.idxDATA_START:_cs.idxDATA_START + data_len],
-                # "crc_0":frame[_cs.idxCRC_0],
-                # "crc_1":frame[_cs.idxCRC_1],
-                # "flag_e":frame[_cs.idxEND_FLAG],
-            }
-            _cs.log('status_ok',f"cmd -> {sent} sent on {ser.name}")
+            # sent = {
+            #     "flag_s":frame[_cs.idxSTART_FLAG],
+            #     "dest":frame[_cs.idxDEST_ADDR],
+            #     "src":frame[_cs.idxSRC_ADDR],
+            #     "cmd":frame[_cs.idxCMD_ID],
+            #     "data_len":frame[_cs.idxDATA_LEN],
+            #     "data":bytes(frame[_cs.idxDATA_START:_cs.idxDATA_START + data_len]),
+            #     "crc_0":frame[_cs.idxCRC_0],
+            #     "crc_1":frame[_cs.idxCRC_1],
+            #     "flag_e":frame[_cs.idxEND_FLAG],
+            # }
+            # detailed_debug = {
+            #     key: ' '.join([f'{byte:02X}' for byte in value]) if key == 'data' and isinstance(value, bytes) else
+            #     f'{value.hex()}' if isinstance(value, bytes) else
+            #     f'{value:02X}' if isinstance(value, int) else
+            #     str(value)
+            #     for key, value in sent.items()
+            # }
+            # _cs.log('status_ok',f"cmd -> {detailed_debug} on {ser.name}")
+            
+            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            _cs.log('status_ok',f"cmd -> {debug}")
+            
         except Exception as e:
             _cs.log('status_nok',"frame not sent")
             _cs.log('err',f'{e}')
             
     def recieve_frame(_rf,ser):
         frame = b''
-        try:
-            _rf.log('',"waiting for reply...")
-            # while not ser.in_waiting:
-            #     pass
+        try:            
+            while not ser.in_waiting:
+                pass
         
             while ser.in_waiting:
                 temp = ser.read(5)
@@ -98,30 +111,49 @@ class Emulator(Node,SSP,LogLevel):
                 
             depacketized_frame = _rf.depacketize(frame)
             
-            _rf.log('status_ok',f'recieved <- {depacketized_frame} from {ser.name}')
+            # detailed_debug = {
+            #     key: ' '.join([f'{byte:02X}' for byte in value]) if key == 'data' and isinstance(value, bytes) else
+            #     f'{value.hex()}' if isinstance(value, bytes) else
+            #     f'{value:02X}' if isinstance(value, int) else
+            #     str(value)
+            #     for key, value in depacketized_frame.items()
+            # }
+            # _rf.log('status_ok',f'recieved {detailed_debug} from {ser.name}')
+            
+            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            _rf.log('status_ok',f"recieved -> {debug}")
             
             return depacketized_frame
         
         except Exception as e:
             _rf.log('status_nok',"error recieving frame")
             _rf.log('err',f'{e}')
+            
+    def timer_callback(_cb):
+        _cb.command_send(_cb.ser_0,0x26,_cb.addr,0x00,_cb.rand)
+        _cb.log('',"listening for reply...")
         
             
 def main(args=None):
-    rand = [random.randint(0, 255) for _ in range(248)]
     rclpy.init(args=args)
 
-    emulator = Emulator(0x01)
+    emulator = Emulator(0x50)
+    
+    nodeExecutor_thread = rclpy.executors.MultiThreadedExecutor()
+    nodeExecutor_thread.add_node(emulator)
+    nodeExecutor_thread = threading.Thread(target=nodeExecutor_thread.spin, daemon=True)
+    nodeExecutor_thread.start()
+    
     emulator.open_serial_ports()
+    
+    emulator.timer = emulator.create_timer(2.0, emulator.timer_callback)
+    
     while True:
-        emulator.command_send(emulator.ser_0,0x26,emulator.addr,0x00,[])
+        # emulator.command_send(emulator.ser_0,0x26,emulator.addr,0x00,[])
         emulator.recieve_frame(emulator.ser_0)
-        time.sleep(1)
-        
+        # time.sleep(0.01)        
 
-    rclpy.spin(emulator)
-    emulator.destroy_node()
-    rclpy.shutdown()
+    nodeExecutor_thread.join()
 
 if __name__ == '__main__':
     main()

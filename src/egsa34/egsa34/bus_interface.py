@@ -97,18 +97,30 @@ class BusInterface(Node,SSP,LogLevel):
             
             _tf.serMAIN.write(bytearray(frame))
             data_len = frame[_tf.idxDATA_LEN]
-            sent = {
-                # "flag_s":frame[_tf.idxSTART_FLAG],
-                "dest":frame[_tf.idxDEST_ADDR],
-                "src":frame[_tf.idxSRC_ADDR],
-                "cmd":frame[_tf.idxCMD_ID],
-                "data_len":frame[_tf.idxDATA_LEN],
-                "data":frame[_tf.idxDATA_START:_tf.idxDATA_START + data_len],
-                # "crc_0":frame[_tf.idxCRC_0],
-                # "crc_1":frame[_tf.idxCRC_1],
-                # "flag_e":frame[_tf.idxEND_FLAG],
-            }
-            _tf.log('status_ok',f"reply -> {sent} on {_tf.serMAIN.name}")
+            
+            # sent = {
+            #     "flag_s":frame[_tf.idxSTART_FLAG],
+            #     "dest":frame[_tf.idxDEST_ADDR],
+            #     "src":frame[_tf.idxSRC_ADDR],
+            #     "cmd":frame[_tf.idxCMD_ID],
+            #     "data_len":frame[_tf.idxDATA_LEN],
+            #     "data":bytes(frame[_tf.idxDATA_START:_tf.idxDATA_START + data_len]),
+            #     "crc_0":frame[_tf.idxCRC_0],
+            #     "crc_1":frame[_tf.idxCRC_1],
+            #     "flag_e":frame[_tf.idxEND_FLAG],
+            # }
+            # detailed_debug = {
+            #     key: ' '.join([f'{byte:02X}' for byte in value]) if key == 'data' and isinstance(value, bytes) else
+            #     f'{value.hex()}' if isinstance(value, bytes) else
+            #     f'{value:02X}' if isinstance(value, int) else
+            #     str(value)
+            #     for key, value in sent.items()
+            # }
+            # _tf.log('status_ok',f"reply -> {detailed_debug} on {_tf.serMAIN.name}")
+            
+            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            _tf.log('status_ok',f"reply -> {debug}")
+            
         except Exception as e:
             _tf.log('status_nok',"frame not sent")
             _tf.log('err',f'{e}')
@@ -116,7 +128,6 @@ class BusInterface(Node,SSP,LogLevel):
     def recieve_frame(_rf):
         frame = b''
         try:
-            _rf.log('',"waiting for commands...")
             while not (_rf.SER0.in_waiting or _rf.SER1.in_waiting):
                 pass
             
@@ -135,7 +146,18 @@ class BusInterface(Node,SSP,LogLevel):
             
             depacketized_frame = _rf.depacketize(frame)
             
-            _rf.log('status_ok',f'recieved {depacketized_frame} from {_rf.serMAIN.name}')
+            # detailed_debug = {
+            #     key: ' '.join([f'{byte:02X}' for byte in value]) if key == 'data' and isinstance(value, bytes) else
+            #     f'{value.hex()}' if isinstance(value, bytes) else
+            #     f'{value:02X}' if isinstance(value, int) else
+            #     str(value)
+            #     for key, value in depacketized_frame.items()
+            # }
+            # _rf.log('status_ok',f'recieved {detailed_debug} from {_rf.serMAIN.name}')
+            
+            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            _rf.log('status_ok',f"recieved -> {debug}")
+            
             _rf.log('warn',f'{_rf.errors[str(_rf.errCODE)]} <{hex(_rf.errCODE)}>')
             
             return depacketized_frame
@@ -143,9 +165,28 @@ class BusInterface(Node,SSP,LogLevel):
         except Exception as e:
             _rf.log('status_nok',"error recieving frame")
             _rf.log('err',f'{e}')
+            
+    def standby(_sb):
         
-    def reply_callback(_rcb,data):
-        pass
+        _sb.log('',"listening for commands...")
+        cmd_frame = _sb.recieve_frame()
+        if _sb.errCODE == _sb.errCMD or _sb.errCODE == _sb.errDEST:
+            pass
+        else:
+            _sb.send_request(cmd_frame["cmd"],cmd_frame["data"])
+            while not _sb.future.done():
+                pass
+            try:
+                response = _sb.future.result()
+                rply_frame = _sb.packetize(cmd_frame["src"],cmd_frame["dest"],response.cmd,response.data)
+                _sb.transmit_frame(rply_frame)
+                _sb.log('info',f'{response}')
+            except Exception as e:
+                _sb.log('status_nok',f'service call <{_sb.cli.srv_name}> failed')
+                _sb.log('err',f'{e}')
+            else:
+                pass
+        
 
 def main(args=None):
     rclpy.init(args=args)
@@ -160,23 +201,7 @@ def main(args=None):
     bus_interface.open_serial_ports()
     
     while True:
-        cmd_frame = bus_interface.recieve_frame()
-        if bus_interface.errCODE == bus_interface.errCMD or bus_interface.errCODE == bus_interface.errDEST:
-            pass
-        else:
-            bus_interface.send_request(cmd_frame["cmd"],cmd_frame["data"])
-            while not bus_interface.future.done():
-                pass
-            try:
-                response = bus_interface.future.result()
-                rply_frame = bus_interface.packetize(cmd_frame["src"],cmd_frame["dest"],response.cmd,response.data)
-                bus_interface.log('info',f'{response}')
-                bus_interface.transmit_frame(rply_frame)
-            except Exception as e:
-                bus_interface.log('status_nok',f'service call <{bus_interface.cli.srv_name}> failed')
-                bus_interface.log('err',f'{e}')
-            else:
-                pass
+        bus_interface.standby()
         
     nodeExecutor_thread.join()
 

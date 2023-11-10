@@ -17,7 +17,7 @@ class CmdHandler(Node,SSP,LogLevel):
         super().__init__('cmd_handler')
         SSP.__init__(_cmd)
         LogLevel.__init__(_cmd)
-        _cmd.cmd_handler = _cmd.create_service(BusReply, 'bus_reply', _cmd.reply_callback)
+        _cmd.cmd_handler_service = _cmd.create_service(BusReply, 'bus_reply', _cmd.reply_callback)
         
         _cmd.callbacks = {
             str(_cmd.cmdPING):_cmd.ping_callback
