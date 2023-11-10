@@ -1,0 +1,73 @@
+{
+  "flag": 192,
+  "max_frame_size": 256,
+  "max_data_size": 248,
+  "frame_types": {
+    "type_direct_cmd": 0,
+    "type_time_tagged_cmd": 1,
+    "type_cmd_frame": 0,
+    "type_reply_frame": 1
+  },
+  "indicies": {
+    "start_flag": 0,
+    "end_flag": -1,
+    "dest_addr": 1,
+    "src_addr": 2,
+    "cmd_id": 3,
+    "data_len": 4,
+    "data_start": 5,
+    "crc_1": -2,
+    "crc_0": -3
+  },
+  "addresses": {
+    "subsystems_addr": {
+      "OBC": 1,
+      "EPS": 2,
+      "CCU": 3,
+      "ADCS": 4,
+      "PL": 5
+    },
+    "modules_addr": {
+      "UHF_1": 32,
+      "UHF_2": 33,
+      "XIMEA_PAN": 34,
+      "XIMEA_LS": 35,
+      "XIMEA_SS": 36,
+      "XBAND": 37,
+      "RPI": 38
+    },
+    "hosted_modules": {
+      "MMCS": 66
+    },
+    "gcss_addr": {
+      "GCS": 80
+    },
+    "multicast_addr": {
+      "multicast": 240,
+      "broadcast": 255
+    }
+  },
+  "commands": {
+    "generic_commands": {
+      "PING":0
+    },
+    "master_commands": {},
+    "eps_commands": {},
+    "payload_commands": {}
+  },
+  "replies":
+  {
+    "generic_replies":{
+      "ACK":2,
+      "NACK":3
+    }
+  },
+  "errors":
+  {
+    "crc_err":1,
+    "params_err":2,
+    "dest_err":3,
+    "cmd_err":4,
+    "other_err":5
+  }
+}

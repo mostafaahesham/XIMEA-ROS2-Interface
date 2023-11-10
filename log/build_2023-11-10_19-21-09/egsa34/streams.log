@@ -1,0 +1,60 @@
+[3.211s] Invoking command in '/home/egsa/EGSA34_PLD/src/egsa34': PYTHONPATH=/home/egsa/EGSA34_PLD/build/egsa34/prefix_override:/home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/egsa34 build --build-base /home/egsa/EGSA34_PLD/build/egsa34/build install --record /home/egsa/EGSA34_PLD/build/egsa34/install.log --single-version-externally-managed
+[4.308s] running egg_info
+[4.310s] creating ../../build/egsa34/egsa34.egg-info
+[4.311s] writing ../../build/egsa34/egsa34.egg-info/PKG-INFO
+[4.312s] writing dependency_links to ../../build/egsa34/egsa34.egg-info/dependency_links.txt
+[4.313s] writing entry points to ../../build/egsa34/egsa34.egg-info/entry_points.txt
+[4.315s] writing requirements to ../../build/egsa34/egsa34.egg-info/requires.txt
+[4.315s] writing top-level names to ../../build/egsa34/egsa34.egg-info/top_level.txt
+[4.315s] writing manifest file '../../build/egsa34/egsa34.egg-info/SOURCES.txt'
+[4.322s] reading manifest file '../../build/egsa34/egsa34.egg-info/SOURCES.txt'
+[4.325s] writing manifest file '../../build/egsa34/egsa34.egg-info/SOURCES.txt'
+[4.326s] running build
+[4.326s] running build_py
+[4.327s] creating /home/egsa/EGSA34_PLD/build/egsa34/build
+[4.327s] creating /home/egsa/EGSA34_PLD/build/egsa34/build/lib
+[4.328s] creating /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.328s] copying egsa34/log_level.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.329s] copying egsa34/cmd_handler.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.329s] copying egsa34/emulator.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.330s] copying egsa34/__init__.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.331s] copying egsa34/ssp.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.332s] copying egsa34/bus_interface.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.332s] copying egsa34/ssp_config.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34
+[4.333s] running install
+[4.334s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[4.335s]   warnings.warn(
+[4.336s] running install_lib
+[4.340s] creating /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.340s] copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/log_level.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.341s] copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/cmd_handler.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.341s] copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/emulator.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.342s] copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/__init__.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.343s] copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/ssp.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.343s] copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/bus_interface.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.344s] copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/ssp_config.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34
+[4.347s] byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/log_level.py to log_level.cpython-310.pyc
+[4.349s] byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/cmd_handler.py to cmd_handler.cpython-310.pyc
+[4.352s] byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/emulator.py to emulator.cpython-310.pyc
+[4.356s] byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/__init__.py to __init__.cpython-310.pyc
+[4.357s] byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/ssp.py to ssp.cpython-310.pyc
+[4.360s] byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/bus_interface.py to bus_interface.cpython-310.pyc
+[4.366s] byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/ssp_config.py to ssp_config.cpython-310.pyc
+[4.369s] running install_data
+[4.371s] creating /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index
+[4.372s] creating /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index/resource_index
+[4.372s] creating /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index/resource_index/packages
+[4.373s] copying resource/egsa34 -> /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index/resource_index/packages
+[4.373s] copying package.xml -> /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34
+[4.374s] creating /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/launch
+[4.375s] copying launch/egsa34.launch.py -> /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/launch
+[4.375s] creating /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/config
+[4.376s] copying config/config.yaml -> /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/config
+[4.376s] running install_egg_info
+[4.383s] Copying ../../build/egsa34/egsa34.egg-info to /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34-0.0.0-py3.10.egg-info
+[4.389s] running install_scripts
+[4.476s] Installing bus_interface script to /home/egsa/EGSA34_PLD/install/egsa34/lib/egsa34
+[4.477s] Installing cmd_handler script to /home/egsa/EGSA34_PLD/install/egsa34/lib/egsa34
+[4.478s] Installing emulator script to /home/egsa/EGSA34_PLD/install/egsa34/lib/egsa34
+[4.480s] writing list of installed files to '/home/egsa/EGSA34_PLD/build/egsa34/install.log'
+[4.620s] Invoked command in '/home/egsa/EGSA34_PLD/src/egsa34' returned '0': PYTHONPATH=/home/egsa/EGSA34_PLD/build/egsa34/prefix_override:/home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/egsa34 build --build-base /home/egsa/EGSA34_PLD/build/egsa34/build install --record /home/egsa/EGSA34_PLD/build/egsa34/install.log --single-version-externally-managed

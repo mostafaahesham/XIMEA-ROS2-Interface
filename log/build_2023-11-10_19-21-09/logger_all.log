@@ -1,0 +1,200 @@
+[3.524s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[3.524s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff85432530>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff85433af0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff85433af0>>)
+[3.700s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[3.700s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[3.701s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[3.701s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[3.701s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[3.701s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[3.701s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/egsa/EGSA34_PLD'
+[3.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[3.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[3.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[3.702s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[3.703s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[3.703s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[3.703s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[3.703s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[3.703s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[3.747s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[3.747s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[3.747s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[3.747s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[3.747s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[3.748s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[3.748s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[3.748s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[3.749s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[3.749s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[3.749s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[3.750s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[3.750s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[3.750s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[3.751s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[3.751s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[3.751s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[3.751s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[3.752s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[3.752s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[3.752s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[3.752s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[3.752s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[3.752s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[3.753s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[3.753s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[3.753s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[3.753s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[3.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extensions ['ignore', 'ignore_ament_install']
+[3.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extension 'ignore'
+[3.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extension 'ignore_ament_install'
+[3.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extensions ['colcon_pkg']
+[3.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extension 'colcon_pkg'
+[3.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extensions ['colcon_meta']
+[3.755s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extension 'colcon_meta'
+[3.755s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extensions ['ros']
+[3.755s] Level 1:colcon.colcon_core.package_identification:_identify(src/egsa34) by extension 'ros'
+[3.764s] DEBUG:colcon.colcon_core.package_identification:Package 'src/egsa34' with type 'ros.ament_python' and name 'egsa34'
+[3.765s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extensions ['ignore', 'ignore_ament_install']
+[3.765s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extension 'ignore'
+[3.765s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extension 'ignore_ament_install'
+[3.765s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extensions ['colcon_pkg']
+[3.765s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extension 'colcon_pkg'
+[3.766s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extensions ['colcon_meta']
+[3.766s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extension 'colcon_meta'
+[3.766s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extensions ['ros']
+[3.766s] Level 1:colcon.colcon_core.package_identification:_identify(src/pl_interface) by extension 'ros'
+[3.768s] DEBUG:colcon.colcon_core.package_identification:Package 'src/pl_interface' with type 'ros.ament_cmake' and name 'pl_interface'
+[3.768s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[3.769s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[3.769s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[3.769s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[3.769s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[4.157s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'cmake_args' from command line to 'None'
+[4.157s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'cmake_target' from command line to 'None'
+[4.158s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.158s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'cmake_clean_cache' from command line to 'False'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'cmake_clean_first' from command line to 'False'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'cmake_force_configure' from command line to 'False'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'ament_cmake_args' from command line to 'None'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'catkin_cmake_args' from command line to 'None'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'egsa34' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.159s] DEBUG:colcon.colcon_core.verb:Building package 'egsa34' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/egsa/EGSA34_PLD/build/egsa34', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/egsa/EGSA34_PLD/install/egsa34', 'merge_install': False, 'path': '/home/egsa/EGSA34_PLD/src/egsa34', 'symlink_install': False, 'test_result_base': None}
+[4.256s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'cmake_args' from command line to 'None'
+[4.256s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'cmake_target' from command line to 'None'
+[4.256s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.257s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[4.257s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'cmake_clean_first' from command line to 'False'
+[4.257s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'cmake_force_configure' from command line to 'False'
+[4.257s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'ament_cmake_args' from command line to 'None'
+[4.257s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[4.257s] Level 5:colcon.colcon_core.verb:set package 'pl_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.257s] DEBUG:colcon.colcon_core.verb:Building package 'pl_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/egsa/EGSA34_PLD/build/pl_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/egsa/EGSA34_PLD/install/pl_interface', 'merge_install': False, 'path': '/home/egsa/EGSA34_PLD/src/pl_interface', 'symlink_install': False, 'test_result_base': None}
+[4.305s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[4.354s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[4.355s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/egsa/EGSA34_PLD/src/egsa34' with build type 'ament_python'
+[4.356s] Level 1:colcon.colcon_core.shell:create_environment_hook('egsa34', 'ament_prefix_path')
+[4.413s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[4.413s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/hook/ament_prefix_path.ps1'
+[4.416s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/hook/ament_prefix_path.dsv'
+[4.418s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/hook/ament_prefix_path.sh'
+[4.469s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.469s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.522s] WARNING:colcon.colcon_core.prefix_path.colcon:The path '/home/egsa/egsa34_pl/install' in the environment variable COLCON_PREFIX_PATH doesn't exist
+[4.522s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/egsa/egsa34_pl/install/pl_interface' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[4.522s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/egsa/egsa34_pl/install/egsa34' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[4.523s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/egsa/egsa34_pl/install/pl_interface' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[4.584s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/egsa/EGSA34_PLD/src/pl_interface' with build type 'ament_cmake'
+[4.585s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/egsa/EGSA34_PLD/src/pl_interface'
+[4.636s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.636s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.868s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/egsa/EGSA34_PLD/src/egsa34'
+[5.936s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.937s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.125s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/egsa/EGSA34_PLD/build/pl_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble /usr/bin/cmake /home/egsa/EGSA34_PLD/src/pl_interface -DCMAKE_INSTALL_PREFIX=/home/egsa/EGSA34_PLD/install/pl_interface
+[7.568s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/egsa/EGSA34_PLD/src/egsa34': PYTHONPATH=/home/egsa/EGSA34_PLD/build/egsa34/prefix_override:/home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/egsa34 build --build-base /home/egsa/EGSA34_PLD/build/egsa34/build install --record /home/egsa/EGSA34_PLD/build/egsa34/install.log --single-version-externally-managed
+[8.977s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/egsa/EGSA34_PLD/src/egsa34' returned '0': PYTHONPATH=/home/egsa/EGSA34_PLD/build/egsa34/prefix_override:/home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/egsa34 build --build-base /home/egsa/EGSA34_PLD/build/egsa34/build install --record /home/egsa/EGSA34_PLD/build/egsa34/install.log --single-version-externally-managed
+[9.058s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/egsa34' for CMake module files
+[9.061s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/egsa34' for CMake config files
+[9.065s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/egsa34/lib'
+[9.066s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/egsa34/bin'
+[9.067s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/egsa34/lib/pkgconfig/egsa34.pc'
+[9.068s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages'
+[9.069s] Level 1:colcon.colcon_core.shell:create_environment_hook('egsa34', 'pythonpath')
+[9.136s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/hook/pythonpath.ps1'
+[9.138s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/hook/pythonpath.dsv'
+[9.141s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/hook/pythonpath.sh'
+[9.146s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/egsa34/bin'
+[9.147s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(egsa34)
+[9.211s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/package.ps1'
+[9.214s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/package.dsv'
+[9.216s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/package.sh'
+[9.221s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/package.bash'
+[9.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/package.zsh'
+[9.230s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/egsa/EGSA34_PLD/install/egsa34/share/colcon-core/packages/egsa34)
+[15.559s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/egsa/EGSA34_PLD/build/pl_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble /usr/bin/cmake /home/egsa/EGSA34_PLD/src/pl_interface -DCMAKE_INSTALL_PREFIX=/home/egsa/EGSA34_PLD/install/pl_interface
+[15.572s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/egsa/EGSA34_PLD/build/pl_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble /usr/bin/cmake --build /home/egsa/EGSA34_PLD/build/pl_interface -- -j4 -l4
+[35.262s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/egsa/EGSA34_PLD/build/pl_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble /usr/bin/cmake --build /home/egsa/EGSA34_PLD/build/pl_interface -- -j4 -l4
+[35.849s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/egsa/EGSA34_PLD/build/pl_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble /usr/bin/cmake --install /home/egsa/EGSA34_PLD/build/pl_interface
+[36.296s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pl_interface)
+[36.298s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/egsa/EGSA34_PLD/build/pl_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble /usr/bin/cmake --install /home/egsa/EGSA34_PLD/build/pl_interface
+[36.349s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface' for CMake module files
+[36.353s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface' for CMake config files
+[36.358s] Level 1:colcon.colcon_core.shell:create_environment_hook('pl_interface', 'cmake_prefix_path')
+[36.407s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/cmake_prefix_path.ps1'
+[36.409s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/cmake_prefix_path.dsv'
+[36.410s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/cmake_prefix_path.sh'
+[36.412s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/lib'
+[36.413s] Level 1:colcon.colcon_core.shell:create_environment_hook('pl_interface', 'ld_library_path_lib')
+[36.467s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/ld_library_path_lib.ps1'
+[36.469s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/ld_library_path_lib.dsv'
+[36.470s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/ld_library_path_lib.sh'
+[36.472s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/bin'
+[36.472s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/lib/pkgconfig/pl_interface.pc'
+[36.473s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/lib/python3.10/site-packages'
+[36.474s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/bin'
+[36.522s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.ps1'
+[36.525s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.dsv'
+[36.527s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.sh'
+[36.529s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.bash'
+[36.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.zsh'
+[36.533s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/egsa/EGSA34_PLD/install/pl_interface/share/colcon-core/packages/pl_interface)
+[37.138s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pl_interface)
+[37.212s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface' for CMake module files
+[37.216s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface' for CMake config files
+[37.221s] Level 1:colcon.colcon_core.shell:create_environment_hook('pl_interface', 'cmake_prefix_path')
+[37.295s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/cmake_prefix_path.ps1'
+[37.298s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/cmake_prefix_path.dsv'
+[37.301s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/cmake_prefix_path.sh'
+[37.305s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/lib'
+[37.306s] Level 1:colcon.colcon_core.shell:create_environment_hook('pl_interface', 'ld_library_path_lib')
+[37.382s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/ld_library_path_lib.ps1'
+[37.385s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/ld_library_path_lib.dsv'
+[37.387s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/hook/ld_library_path_lib.sh'
+[37.389s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/bin'
+[37.390s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/lib/pkgconfig/pl_interface.pc'
+[37.391s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/lib/python3.10/site-packages'
+[37.393s] Level 1:colcon.colcon_core.environment:checking '/home/egsa/EGSA34_PLD/install/pl_interface/bin'
+[37.466s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.ps1'
+[37.469s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.dsv'
+[37.472s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.sh'
+[37.475s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.bash'
+[37.478s] INFO:colcon.colcon_core.shell:Creating package script '/home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.zsh'
+[37.480s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/egsa/EGSA34_PLD/install/pl_interface/share/colcon-core/packages/pl_interface)
+[37.481s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[37.483s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[37.484s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[37.484s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[37.582s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[37.582s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[37.582s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[37.636s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[37.685s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/egsa/EGSA34_PLD/install/local_setup.ps1'
+[37.689s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/egsa/EGSA34_PLD/install/_local_setup_util_ps1.py'
+[37.694s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/egsa/EGSA34_PLD/install/setup.ps1'
+[37.744s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/egsa/EGSA34_PLD/install/local_setup.sh'
+[37.746s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/egsa/EGSA34_PLD/install/_local_setup_util_sh.py'
+[37.748s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/egsa/EGSA34_PLD/install/setup.sh'
+[37.799s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/egsa/EGSA34_PLD/install/local_setup.bash'
+[37.801s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/egsa/EGSA34_PLD/install/setup.bash'
+[37.850s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/egsa/EGSA34_PLD/install/local_setup.zsh'
+[37.852s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/egsa/EGSA34_PLD/install/setup.zsh'

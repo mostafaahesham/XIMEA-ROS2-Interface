@@ -1,0 +1,715 @@
+[0.000000] (-) TimerEvent: {}
+[0.001649] (egsa34) JobQueued: {'identifier': 'egsa34', 'dependencies': OrderedDict()}
+[0.002228] (pl_interface) JobQueued: {'identifier': 'pl_interface', 'dependencies': OrderedDict()}
+[0.002320] (egsa34) JobStarted: {'identifier': 'egsa34'}
+[0.099084] (-) TimerEvent: {}
+[0.199883] (-) TimerEvent: {}
+[0.230520] (pl_interface) JobStarted: {'identifier': 'pl_interface'}
+[0.300087] (-) TimerEvent: {}
+[0.400862] (-) TimerEvent: {}
+[0.503401] (-) TimerEvent: {}
+[0.604313] (-) TimerEvent: {}
+[0.705282] (-) TimerEvent: {}
+[0.806287] (-) TimerEvent: {}
+[0.906998] (-) TimerEvent: {}
+[1.007695] (-) TimerEvent: {}
+[1.108367] (-) TimerEvent: {}
+[1.209103] (-) TimerEvent: {}
+[1.310065] (-) TimerEvent: {}
+[1.410901] (-) TimerEvent: {}
+[1.511987] (-) TimerEvent: {}
+[1.613479] (-) TimerEvent: {}
+[1.714540] (-) TimerEvent: {}
+[1.755369] (pl_interface) JobProgress: {'identifier': 'pl_interface', 'progress': 'cmake'}
+[1.759793] (pl_interface) Command: {'cmd': ['/usr/bin/cmake', '/home/egsa/EGSA34_PLD/src/pl_interface', '-DCMAKE_INSTALL_PREFIX=/home/egsa/EGSA34_PLD/install/pl_interface'], 'cwd': '/home/egsa/EGSA34_PLD/build/pl_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'egsa'), ('SSH_CLIENT', '172.20.10.3 53884 22'), ('LC_TIME', 'ar_EG.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/egsa/egsa34_pl/install/pl_interface/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/egsa'), ('OLDPWD', '/home/egsa'), ('TERM_PROGRAM_VERSION', '1.84.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-418a2a23-d088-402d-b7b5-4509167d3f38.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'ar_EG.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/egsa/egsa34_pl/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'egsa'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/remote-cli:/home/egsa/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'ar_EG.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'ar_EG.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-7fb5ba8c5f.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/egsa/egsa34_pl/install/pl_interface:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ar_EG.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ar_EG.UTF-8'), ('LC_IDENTIFICATION', 'ar_EG.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/egsa/EGSA34_PLD/build/pl_interface'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '172.20.10.3 53884 172.20.10.8 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/egsa/egsa34_pl/install/pl_interface/local/lib/python3.10/dist-packages:/home/egsa/egsa34_pl/install/egsa34/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ar_EG.UTF-8'), ('LC_PAPER', 'ar_EG.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/egsa/egsa34_pl/install/pl_interface:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble')]), 'shell': False}
+[1.814770] (-) TimerEvent: {}
+[1.915554] (-) TimerEvent: {}
+[2.016269] (-) TimerEvent: {}
+[2.116995] (-) TimerEvent: {}
+[2.217719] (-) TimerEvent: {}
+[2.318608] (-) TimerEvent: {}
+[2.419252] (-) TimerEvent: {}
+[2.519934] (-) TimerEvent: {}
+[2.620705] (-) TimerEvent: {}
+[2.682171] (pl_interface) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[2.720904] (-) TimerEvent: {}
+[2.821740] (-) TimerEvent: {}
+[2.922407] (-) TimerEvent: {}
+[3.023208] (-) TimerEvent: {}
+[3.124473] (-) TimerEvent: {}
+[3.201791] (egsa34) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/egsa34', 'build', '--build-base', '/home/egsa/EGSA34_PLD/build/egsa34/build', 'install', '--record', '/home/egsa/EGSA34_PLD/build/egsa34/install.log', '--single-version-externally-managed'], 'cwd': '/home/egsa/EGSA34_PLD/src/egsa34', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'egsa', 'SSH_CLIENT': '172.20.10.3 53884 22', 'LC_TIME': 'ar_EG.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/egsa/egsa34_pl/install/pl_interface/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'BROWSER': '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/egsa', 'OLDPWD': '/home/egsa', 'TERM_PROGRAM_VERSION': '1.84.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-418a2a23-d088-402d-b7b5-4509167d3f38.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'ar_EG.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/node', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/egsa/egsa34_pl/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'egsa', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/remote-cli:/home/egsa/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'ar_EG.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'ar_EG.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-7fb5ba8c5f.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/egsa/egsa34_pl/install/pl_interface:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'ar_EG.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ar_EG.UTF-8', 'LC_IDENTIFICATION': 'ar_EG.UTF-8', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/egsa/EGSA34_PLD/build/egsa34', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '172.20.10.3 53884 172.20.10.8 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/egsa/EGSA34_PLD/build/egsa34/prefix_override:/home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages:/home/egsa/egsa34_pl/install/pl_interface/local/lib/python3.10/dist-packages:/home/egsa/egsa34_pl/install/egsa34/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'ar_EG.UTF-8', 'LC_PAPER': 'ar_EG.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/egsa/egsa34_pl/install/pl_interface'}, 'shell': False}
+[3.224652] (-) TimerEvent: {}
+[3.325397] (-) TimerEvent: {}
+[3.426206] (-) TimerEvent: {}
+[3.445031] (pl_interface) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[3.493818] (pl_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.526388] (-) TimerEvent: {}
+[3.628089] (-) TimerEvent: {}
+[3.728898] (-) TimerEvent: {}
+[3.829711] (-) TimerEvent: {}
+[3.839857] (pl_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.864151] (pl_interface) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[3.866419] (pl_interface) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.868901] (pl_interface) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.885387] (pl_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.929889] (-) TimerEvent: {}
+[4.030570] (-) TimerEvent: {}
+[4.131307] (-) TimerEvent: {}
+[4.232367] (-) TimerEvent: {}
+[4.252610] (pl_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.282670] (pl_interface) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.283843] (pl_interface) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.285642] (pl_interface) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.309674] (egsa34) StdoutLine: {'line': b'running egg_info\n'}
+[4.311943] (egsa34) StdoutLine: {'line': b'creating ../../build/egsa34/egsa34.egg-info\n'}
+[4.313054] (pl_interface) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.5 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[4.313666] (egsa34) StdoutLine: {'line': b'writing ../../build/egsa34/egsa34.egg-info/PKG-INFO\n'}
+[4.314402] (egsa34) StdoutLine: {'line': b'writing dependency_links to ../../build/egsa34/egsa34.egg-info/dependency_links.txt\n'}
+[4.315133] (egsa34) StdoutLine: {'line': b'writing entry points to ../../build/egsa34/egsa34.egg-info/entry_points.txt\n'}
+[4.316556] (egsa34) StdoutLine: {'line': b'writing requirements to ../../build/egsa34/egsa34.egg-info/requires.txt\n'}
+[4.317295] (egsa34) StdoutLine: {'line': b'writing top-level names to ../../build/egsa34/egsa34.egg-info/top_level.txt\n'}
+[4.317735] (egsa34) StdoutLine: {'line': b"writing manifest file '../../build/egsa34/egsa34.egg-info/SOURCES.txt'\n"}
+[4.323952] (egsa34) StdoutLine: {'line': b"reading manifest file '../../build/egsa34/egsa34.egg-info/SOURCES.txt'\n"}
+[4.327118] (egsa34) StdoutLine: {'line': b"writing manifest file '../../build/egsa34/egsa34.egg-info/SOURCES.txt'\n"}
+[4.328011] (egsa34) StdoutLine: {'line': b'running build\n'}
+[4.328451] (egsa34) StdoutLine: {'line': b'running build_py\n'}
+[4.328896] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/build/egsa34/build\n'}
+[4.329631] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/build/egsa34/build/lib\n'}
+[4.330111] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.330513] (egsa34) StdoutLine: {'line': b'copying egsa34/log_level.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.330879] (egsa34) StdoutLine: {'line': b'copying egsa34/cmd_handler.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.331341] (egsa34) StdoutLine: {'line': b'copying egsa34/emulator.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.331862] (egsa34) StdoutLine: {'line': b'copying egsa34/__init__.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.332468] (-) TimerEvent: {}
+[4.333020] (egsa34) StdoutLine: {'line': b'copying egsa34/ssp.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.333761] (egsa34) StdoutLine: {'line': b'copying egsa34/bus_interface.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.334305] (egsa34) StdoutLine: {'line': b'copying egsa34/ssp_config.py -> /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34\n'}
+[4.335574] (egsa34) StdoutLine: {'line': b'running install\n'}
+[4.336304] (egsa34) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[4.336857] (egsa34) StderrLine: {'line': b'  warnings.warn(\n'}
+[4.337662] (egsa34) StdoutLine: {'line': b'running install_lib\n'}
+[4.341678] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.342294] (egsa34) StdoutLine: {'line': b'copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/log_level.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.342840] (egsa34) StdoutLine: {'line': b'copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/cmd_handler.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.343536] (egsa34) StdoutLine: {'line': b'copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/emulator.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.344229] (egsa34) StdoutLine: {'line': b'copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/__init__.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.344840] (egsa34) StdoutLine: {'line': b'copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/ssp.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.345560] (egsa34) StdoutLine: {'line': b'copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/bus_interface.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.346285] (egsa34) StdoutLine: {'line': b'copying /home/egsa/EGSA34_PLD/build/egsa34/build/lib/egsa34/ssp_config.py -> /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34\n'}
+[4.348771] (egsa34) StdoutLine: {'line': b'byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/log_level.py to log_level.cpython-310.pyc\n'}
+[4.350744] (egsa34) StdoutLine: {'line': b'byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/cmd_handler.py to cmd_handler.cpython-310.pyc\n'}
+[4.354026] (egsa34) StdoutLine: {'line': b'byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/emulator.py to emulator.cpython-310.pyc\n'}
+[4.358322] (egsa34) StdoutLine: {'line': b'byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/__init__.py to __init__.cpython-310.pyc\n'}
+[4.359576] (egsa34) StdoutLine: {'line': b'byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/ssp.py to ssp.cpython-310.pyc\n'}
+[4.362610] (egsa34) StdoutLine: {'line': b'byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/bus_interface.py to bus_interface.cpython-310.pyc\n'}
+[4.368320] (egsa34) StdoutLine: {'line': b'byte-compiling /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34/ssp_config.py to ssp_config.cpython-310.pyc\n'}
+[4.370942] (egsa34) StdoutLine: {'line': b'running install_data\n'}
+[4.373095] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index\n'}
+[4.373877] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index/resource_index\n'}
+[4.374434] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index/resource_index/packages\n'}
+[4.374827] (egsa34) StdoutLine: {'line': b'copying resource/egsa34 -> /home/egsa/EGSA34_PLD/install/egsa34/share/ament_index/resource_index/packages\n'}
+[4.375448] (egsa34) StdoutLine: {'line': b'copying package.xml -> /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34\n'}
+[4.376146] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/launch\n'}
+[4.376808] (egsa34) StdoutLine: {'line': b'copying launch/egsa34.launch.py -> /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/launch\n'}
+[4.377507] (egsa34) StdoutLine: {'line': b'creating /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/config\n'}
+[4.378045] (egsa34) StdoutLine: {'line': b'copying config/config.yaml -> /home/egsa/EGSA34_PLD/install/egsa34/share/egsa34/config\n'}
+[4.378465] (egsa34) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.384836] (egsa34) StdoutLine: {'line': b'Copying ../../build/egsa34/egsa34.egg-info to /home/egsa/EGSA34_PLD/install/egsa34/lib/python3.10/site-packages/egsa34-0.0.0-py3.10.egg-info\n'}
+[4.390837] (egsa34) StdoutLine: {'line': b'running install_scripts\n'}
+[4.432660] (-) TimerEvent: {}
+[4.478455] (egsa34) StdoutLine: {'line': b'Installing bus_interface script to /home/egsa/EGSA34_PLD/install/egsa34/lib/egsa34\n'}
+[4.479136] (egsa34) StdoutLine: {'line': b'Installing cmd_handler script to /home/egsa/EGSA34_PLD/install/egsa34/lib/egsa34\n'}
+[4.479692] (egsa34) StdoutLine: {'line': b'Installing emulator script to /home/egsa/EGSA34_PLD/install/egsa34/lib/egsa34\n'}
+[4.482251] (egsa34) StdoutLine: {'line': b"writing list of installed files to '/home/egsa/EGSA34_PLD/build/egsa34/install.log'\n"}
+[4.533107] (-) TimerEvent: {}
+[4.620954] (egsa34) CommandEnded: {'returncode': 0}
+[4.633940] (-) TimerEvent: {}
+[4.735267] (-) TimerEvent: {}
+[4.836140] (-) TimerEvent: {}
+[4.877428] (egsa34) JobEnded: {'identifier': 'egsa34', 'rc': 0}
+[4.936340] (-) TimerEvent: {}
+[5.037013] (-) TimerEvent: {}
+[5.098477] (pl_interface) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter \n'}
+[5.137215] (-) TimerEvent: {}
+[5.237853] (-) TimerEvent: {}
+[5.338553] (-) TimerEvent: {}
+[5.439210] (-) TimerEvent: {}
+[5.539880] (-) TimerEvent: {}
+[5.640554] (-) TimerEvent: {}
+[5.741320] (-) TimerEvent: {}
+[5.768253] (pl_interface) StderrLine: {'line': b'\x1b[33mCMake Warning at CMakeLists.txt:14 (find_package):\n'}
+[5.768919] (pl_interface) StderrLine: {'line': b'  By not providing "FindREQUIRED.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[5.769272] (pl_interface) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "REQUIRED",\n'}
+[5.769572] (pl_interface) StderrLine: {'line': b'  but CMake did not find one.\n'}
+[5.769833] (pl_interface) StderrLine: {'line': b'\n'}
+[5.770087] (pl_interface) StderrLine: {'line': b'  Could not find a package configuration file provided by "REQUIRED" with any\n'}
+[5.770338] (pl_interface) StderrLine: {'line': b'  of the following names:\n'}
+[5.770583] (pl_interface) StderrLine: {'line': b'\n'}
+[5.770845] (pl_interface) StderrLine: {'line': b'    REQUIREDConfig.cmake\n'}
+[5.771090] (pl_interface) StderrLine: {'line': b'    required-config.cmake\n'}
+[5.771333] (pl_interface) StderrLine: {'line': b'\n'}
+[5.771575] (pl_interface) StderrLine: {'line': b'  Add the installation prefix of "REQUIRED" to CMAKE_PREFIX_PATH or set\n'}
+[5.771823] (pl_interface) StderrLine: {'line': b'  "REQUIRED_DIR" to a directory containing one of the above files.  If\n'}
+[5.772099] (pl_interface) StderrLine: {'line': b'  "REQUIRED" provides a separate development package or SDK, be sure it has\n'}
+[5.772353] (pl_interface) StderrLine: {'line': b'  been installed.\n'}
+[5.772596] (pl_interface) StderrLine: {'line': b'\n'}
+[5.772837] (pl_interface) StderrLine: {'line': b'\x1b[0m\n'}
+[5.780818] (pl_interface) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[5.805610] (pl_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.841473] (-) TimerEvent: {}
+[5.858366] (pl_interface) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[5.941633] (-) TimerEvent: {}
+[6.042473] (-) TimerEvent: {}
+[6.143484] (-) TimerEvent: {}
+[6.181699] (pl_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.243665] (-) TimerEvent: {}
+[6.344331] (-) TimerEvent: {}
+[6.445044] (-) TimerEvent: {}
+[6.545972] (-) TimerEvent: {}
+[6.647381] (-) TimerEvent: {}
+[6.748160] (-) TimerEvent: {}
+[6.848868] (-) TimerEvent: {}
+[6.949618] (-) TimerEvent: {}
+[7.050689] (-) TimerEvent: {}
+[7.151324] (-) TimerEvent: {}
+[7.251985] (-) TimerEvent: {}
+[7.352636] (-) TimerEvent: {}
+[7.453305] (-) TimerEvent: {}
+[7.503474] (pl_interface) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[7.553567] (-) TimerEvent: {}
+[7.654245] (-) TimerEvent: {}
+[7.754891] (-) TimerEvent: {}
+[7.855558] (-) TimerEvent: {}
+[7.956198] (-) TimerEvent: {}
+[8.056928] (-) TimerEvent: {}
+[8.157723] (-) TimerEvent: {}
+[8.258528] (-) TimerEvent: {}
+[8.265108] (pl_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[8.358679] (-) TimerEvent: {}
+[8.459333] (-) TimerEvent: {}
+[8.559947] (-) TimerEvent: {}
+[8.660704] (-) TimerEvent: {}
+[8.761454] (-) TimerEvent: {}
+[8.862109] (-) TimerEvent: {}
+[8.962778] (-) TimerEvent: {}
+[9.063520] (-) TimerEvent: {}
+[9.164185] (-) TimerEvent: {}
+[9.198698] (pl_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[9.264338] (-) TimerEvent: {}
+[9.282061] (pl_interface) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[9.294784] (pl_interface) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[9.364564] (-) TimerEvent: {}
+[9.387029] (pl_interface) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[9.387761] (pl_interface) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[9.388157] (pl_interface) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[9.388502] (pl_interface) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so\n'}
+[9.462363] (pl_interface) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[9.464768] (-) TimerEvent: {}
+[9.565416] (-) TimerEvent: {}
+[9.596544] (pl_interface) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[9.665673] (-) TimerEvent: {}
+[9.766772] (-) TimerEvent: {}
+[9.867839] (-) TimerEvent: {}
+[9.968812] (-) TimerEvent: {}
+[10.069912] (-) TimerEvent: {}
+[10.170876] (-) TimerEvent: {}
+[10.271937] (-) TimerEvent: {}
+[10.373058] (-) TimerEvent: {}
+[10.474105] (-) TimerEvent: {}
+[10.575077] (-) TimerEvent: {}
+[10.675778] (-) TimerEvent: {}
+[10.776608] (-) TimerEvent: {}
+[10.877346] (-) TimerEvent: {}
+[10.910642] (pl_interface) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[10.924062] (pl_interface) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[10.945509] (pl_interface) StdoutLine: {'line': b'-- Configuring done\n'}
+[10.977518] (-) TimerEvent: {}
+[11.078346] (-) TimerEvent: {}
+[11.161931] (pl_interface) StdoutLine: {'line': b'-- Generating done\n'}
+[11.178547] (-) TimerEvent: {}
+[11.179443] (pl_interface) StdoutLine: {'line': b'-- Build files have been written to: /home/egsa/EGSA34_PLD/build/pl_interface\n'}
+[11.203581] (pl_interface) CommandEnded: {'returncode': 0}
+[11.206113] (pl_interface) JobProgress: {'identifier': 'pl_interface', 'progress': 'build'}
+[11.215521] (pl_interface) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/egsa/EGSA34_PLD/build/pl_interface', '--', '-j4', '-l4'], 'cwd': '/home/egsa/EGSA34_PLD/build/pl_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'egsa'), ('SSH_CLIENT', '172.20.10.3 53884 22'), ('LC_TIME', 'ar_EG.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/egsa/egsa34_pl/install/pl_interface/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/egsa'), ('OLDPWD', '/home/egsa'), ('TERM_PROGRAM_VERSION', '1.84.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-418a2a23-d088-402d-b7b5-4509167d3f38.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'ar_EG.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/egsa/egsa34_pl/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'egsa'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/remote-cli:/home/egsa/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'ar_EG.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'ar_EG.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-7fb5ba8c5f.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/egsa/egsa34_pl/install/pl_interface:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ar_EG.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ar_EG.UTF-8'), ('LC_IDENTIFICATION', 'ar_EG.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/egsa/EGSA34_PLD/build/pl_interface'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '172.20.10.3 53884 172.20.10.8 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/egsa/egsa34_pl/install/pl_interface/local/lib/python3.10/dist-packages:/home/egsa/egsa34_pl/install/egsa34/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ar_EG.UTF-8'), ('LC_PAPER', 'ar_EG.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/egsa/egsa34_pl/install/pl_interface:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble')]), 'shell': False}
+[11.278750] (-) TimerEvent: {}
+[11.376711] (pl_interface) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[11.378964] (-) TimerEvent: {}
+[11.421957] (pl_interface) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[11.455689] (pl_interface) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_pl_interface\n'}
+[11.479172] (-) TimerEvent: {}
+[11.580664] (-) TimerEvent: {}
+[11.698831] (-) TimerEvent: {}
+[11.800340] (-) TimerEvent: {}
+[11.901808] (-) TimerEvent: {}
+[12.003264] (-) TimerEvent: {}
+[12.104900] (-) TimerEvent: {}
+[12.206647] (-) TimerEvent: {}
+[12.307502] (-) TimerEvent: {}
+[12.408284] (-) TimerEvent: {}
+[12.509047] (-) TimerEvent: {}
+[12.609800] (-) TimerEvent: {}
+[12.693920] (pl_interface) StdoutLine: {'line': b'running egg_info\n'}
+[12.697506] (pl_interface) StdoutLine: {'line': b'creating pl_interface.egg-info\n'}
+[12.699323] (pl_interface) StdoutLine: {'line': b'writing pl_interface.egg-info/PKG-INFO\n'}
+[12.701651] (pl_interface) StdoutLine: {'line': b'writing dependency_links to pl_interface.egg-info/dependency_links.txt\n'}
+[12.703925] (pl_interface) StdoutLine: {'line': b'writing top-level names to pl_interface.egg-info/top_level.txt\n'}
+[12.706099] (pl_interface) StdoutLine: {'line': b"writing manifest file 'pl_interface.egg-info/SOURCES.txt'\n"}
+[12.709974] (-) TimerEvent: {}
+[12.719786] (pl_interface) StdoutLine: {'line': b"reading manifest file 'pl_interface.egg-info/SOURCES.txt'\n"}
+[12.723405] (pl_interface) StdoutLine: {'line': b"writing manifest file 'pl_interface.egg-info/SOURCES.txt'\n"}
+[12.810191] (-) TimerEvent: {}
+[12.868680] (pl_interface) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_build_pl_interface_egg\n'}
+[12.910432] (-) TimerEvent: {}
+[13.011866] (-) TimerEvent: {}
+[13.113595] (-) TimerEvent: {}
+[13.215950] (-) TimerEvent: {}
+[13.317137] (-) TimerEvent: {}
+[13.357686] (pl_interface) StdoutLine: {'line': b'[  4%] Built target pl_interface__cpp\n'}
+[13.406109] (pl_interface) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[13.417411] (-) TimerEvent: {}
+[13.454751] (pl_interface) StdoutLine: {'line': b'[  8%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[13.459221] (pl_interface) StdoutLine: {'line': b'[ 10%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[13.517711] (-) TimerEvent: {}
+[13.585039] (pl_interface) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_generator_c.dir/rosidl_generator_c/pl_interface/msg/detail/bus_cmd__functions.c.o\x1b[0m\n'}
+[13.617971] (-) TimerEvent: {}
+[13.719267] (-) TimerEvent: {}
+[13.821623] (-) TimerEvent: {}
+[13.923576] (-) TimerEvent: {}
+[14.025290] (-) TimerEvent: {}
+[14.037221] (pl_interface) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_generator_c.dir/rosidl_generator_c/pl_interface/msg/detail/bus_reply__functions.c.o\x1b[0m\n'}
+[14.125483] (-) TimerEvent: {}
+[14.227144] (-) TimerEvent: {}
+[14.305702] (pl_interface) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_generator_c.dir/rosidl_generator_c/pl_interface/srv/detail/bus_reply__functions.c.o\x1b[0m\n'}
+[14.327375] (-) TimerEvent: {}
+[14.428216] (-) TimerEvent: {}
+[14.529073] (-) TimerEvent: {}
+[14.620696] (pl_interface) StdoutLine: {'line': b'[ 19%] \x1b[32m\x1b[1mLinking C shared library libpl_interface__rosidl_generator_c.so\x1b[0m\n'}
+[14.629324] (-) TimerEvent: {}
+[14.730816] (-) TimerEvent: {}
+[14.819518] (pl_interface) StdoutLine: {'line': b'[ 19%] Built target pl_interface__rosidl_generator_c\n'}
+[14.831151] (-) TimerEvent: {}
+[14.883097] (pl_interface) StdoutLine: {'line': b'[ 21%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[14.931335] (-) TimerEvent: {}
+[15.033062] (-) TimerEvent: {}
+[15.062053] (pl_interface) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pl_interface/msg/bus_cmd__type_support.cpp.o\x1b[0m\n'}
+[15.133383] (-) TimerEvent: {}
+[15.235420] (-) TimerEvent: {}
+[15.338587] (-) TimerEvent: {}
+[15.439977] (-) TimerEvent: {}
+[15.450101] (pl_interface) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pl_interface/msg/detail/bus_cmd__type_support.cpp.o\x1b[0m\n'}
+[15.540205] (-) TimerEvent: {}
+[15.556124] (pl_interface) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pl_interface/msg/detail/dds_fastrtps/bus_cmd__type_support.cpp.o\x1b[0m\n'}
+[15.640406] (-) TimerEvent: {}
+[15.742310] (-) TimerEvent: {}
+[15.843856] (-) TimerEvent: {}
+[15.944651] (-) TimerEvent: {}
+[16.046862] (-) TimerEvent: {}
+[16.147787] (-) TimerEvent: {}
+[16.250027] (-) TimerEvent: {}
+[16.351621] (-) TimerEvent: {}
+[16.453919] (-) TimerEvent: {}
+[16.556018] (-) TimerEvent: {}
+[16.657903] (-) TimerEvent: {}
+[16.759914] (-) TimerEvent: {}
+[16.862731] (-) TimerEvent: {}
+[16.965516] (-) TimerEvent: {}
+[17.068773] (-) TimerEvent: {}
+[17.171078] (-) TimerEvent: {}
+[17.208698] (pl_interface) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pl_interface/msg/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[17.271467] (-) TimerEvent: {}
+[17.373374] (-) TimerEvent: {}
+[17.462497] (pl_interface) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pl_interface/msg/detail/bus_cmd__type_support_c.cpp.o\x1b[0m\n'}
+[17.473591] (-) TimerEvent: {}
+[17.574654] (-) TimerEvent: {}
+[17.675647] (-) TimerEvent: {}
+[17.776983] (-) TimerEvent: {}
+[17.878010] (-) TimerEvent: {}
+[17.979079] (-) TimerEvent: {}
+[18.080231] (-) TimerEvent: {}
+[18.181365] (-) TimerEvent: {}
+[18.283340] (-) TimerEvent: {}
+[18.372825] (pl_interface) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pl_interface/msg/detail/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[18.383599] (-) TimerEvent: {}
+[18.485655] (-) TimerEvent: {}
+[18.587784] (-) TimerEvent: {}
+[18.690471] (-) TimerEvent: {}
+[18.730373] (pl_interface) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pl_interface/msg/detail/dds_fastrtps/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[18.790719] (-) TimerEvent: {}
+[18.892392] (-) TimerEvent: {}
+[18.994214] (-) TimerEvent: {}
+[19.056605] (pl_interface) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pl_interface/srv/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[19.094491] (-) TimerEvent: {}
+[19.196387] (-) TimerEvent: {}
+[19.297330] (-) TimerEvent: {}
+[19.398357] (-) TimerEvent: {}
+[19.499472] (-) TimerEvent: {}
+[19.600568] (-) TimerEvent: {}
+[19.681847] (pl_interface) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pl_interface/msg/detail/bus_reply__type_support_c.cpp.o\x1b[0m\n'}
+[19.700878] (-) TimerEvent: {}
+[19.803416] (-) TimerEvent: {}
+[19.905723] (-) TimerEvent: {}
+[20.007820] (-) TimerEvent: {}
+[20.110104] (-) TimerEvent: {}
+[20.212328] (-) TimerEvent: {}
+[20.314814] (-) TimerEvent: {}
+[20.417355] (-) TimerEvent: {}
+[20.519354] (-) TimerEvent: {}
+[20.621640] (-) TimerEvent: {}
+[20.723694] (-) TimerEvent: {}
+[20.772485] (pl_interface) StdoutLine: {'line': b'[ 42%] \x1b[32m\x1b[1mLinking CXX shared library libpl_interface__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[20.824068] (-) TimerEvent: {}
+[20.926387] (-) TimerEvent: {}
+[21.010075] (pl_interface) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pl_interface/srv/detail/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[21.026609] (-) TimerEvent: {}
+[21.039732] (pl_interface) StdoutLine: {'line': b'[ 44%] Built target pl_interface__rosidl_typesupport_cpp\n'}
+[21.127347] (-) TimerEvent: {}
+[21.141938] (pl_interface) StdoutLine: {'line': b'[ 46%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[21.227641] (-) TimerEvent: {}
+[21.328734] (-) TimerEvent: {}
+[21.429800] (-) TimerEvent: {}
+[21.531019] (-) TimerEvent: {}
+[21.633291] (-) TimerEvent: {}
+[21.670340] (pl_interface) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pl_interface/srv/detail/dds_fastrtps/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[21.733487] (-) TimerEvent: {}
+[21.835448] (-) TimerEvent: {}
+[21.938332] (-) TimerEvent: {}
+[22.000150] (pl_interface) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pl_interface/srv/detail/bus_reply__type_support_c.cpp.o\x1b[0m\n'}
+[22.038572] (-) TimerEvent: {}
+[22.140727] (-) TimerEvent: {}
+[22.242247] (-) TimerEvent: {}
+[22.353360] (-) TimerEvent: {}
+[22.454449] (-) TimerEvent: {}
+[22.555331] (-) TimerEvent: {}
+[22.657624] (-) TimerEvent: {}
+[22.759761] (-) TimerEvent: {}
+[22.873374] (-) TimerEvent: {}
+[22.977427] (-) TimerEvent: {}
+[23.085373] (-) TimerEvent: {}
+[23.189368] (-) TimerEvent: {}
+[23.296007] (-) TimerEvent: {}
+[23.397040] (-) TimerEvent: {}
+[23.498988] (-) TimerEvent: {}
+[23.602355] (-) TimerEvent: {}
+[23.706206] (-) TimerEvent: {}
+[23.808134] (-) TimerEvent: {}
+[23.909199] (-) TimerEvent: {}
+[23.927474] (pl_interface) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pl_interface/msg/detail/bus_cmd__type_support.c.o\x1b[0m\n'}
+[24.009455] (-) TimerEvent: {}
+[24.111963] (-) TimerEvent: {}
+[24.200203] (pl_interface) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pl_interface/msg/detail/bus_reply__type_support.c.o\x1b[0m\n'}
+[24.212221] (-) TimerEvent: {}
+[24.273120] (pl_interface) StdoutLine: {'line': b'[ 57%] \x1b[32m\x1b[1mLinking CXX shared library libpl_interface__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[24.312498] (-) TimerEvent: {}
+[24.413565] (-) TimerEvent: {}
+[24.463694] (pl_interface) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pl_interface/srv/detail/bus_reply__type_support.c.o\x1b[0m\n'}
+[24.513782] (-) TimerEvent: {}
+[24.558765] (pl_interface) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libpl_interface__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[24.614012] (-) TimerEvent: {}
+[24.691259] (pl_interface) StdoutLine: {'line': b'[ 61%] Built target pl_interface__rosidl_typesupport_introspection_cpp\n'}
+[24.714348] (-) TimerEvent: {}
+[24.752607] (pl_interface) StdoutLine: {'line': b'[ 63%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[24.759804] (pl_interface) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking C shared library libpl_interface__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[24.814598] (-) TimerEvent: {}
+[24.915818] (-) TimerEvent: {}
+[24.988349] (pl_interface) StdoutLine: {'line': b'[ 65%] Built target pl_interface__rosidl_typesupport_introspection_c\n'}
+[25.015792] (pl_interface) StdoutLine: {'line': b'[ 65%] Built target pl_interface__rosidl_typesupport_fastrtps_c\n'}
+[25.016600] (-) TimerEvent: {}
+[25.119158] (-) TimerEvent: {}
+[25.219950] (-) TimerEvent: {}
+[25.288499] (pl_interface) StdoutLine: {'line': b'[ 68%] \x1b[32m\x1b[1mLinking CXX shared library libpl_interface__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[25.320188] (-) TimerEvent: {}
+[25.421079] (-) TimerEvent: {}
+[25.522019] (-) TimerEvent: {}
+[25.606297] (pl_interface) StdoutLine: {'line': b'[ 68%] Built target pl_interface__rosidl_typesupport_fastrtps_cpp\n'}
+[25.622194] (-) TimerEvent: {}
+[25.723209] (-) TimerEvent: {}
+[25.823875] (-) TimerEvent: {}
+[25.924548] (-) TimerEvent: {}
+[26.025268] (-) TimerEvent: {}
+[26.126114] (-) TimerEvent: {}
+[26.130538] (pl_interface) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/pl_interface/msg/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[26.133877] (pl_interface) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/pl_interface/msg/bus_cmd__type_support.cpp.o\x1b[0m\n'}
+[26.135112] (pl_interface) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/pl_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/pl_interface/srv/bus_reply__type_support.cpp.o\x1b[0m\n'}
+[26.226376] (-) TimerEvent: {}
+[26.296125] (pl_interface) StdoutLine: {'line': b'[ 76%] \x1b[32m\x1b[1mLinking CXX shared library libpl_interface__rosidl_typesupport_c.so\x1b[0m\n'}
+[26.326554] (-) TimerEvent: {}
+[26.427239] (-) TimerEvent: {}
+[26.458713] (pl_interface) StdoutLine: {'line': b'[ 76%] Built target pl_interface__rosidl_typesupport_c\n'}
+[26.527445] (-) TimerEvent: {}
+[26.541746] (pl_interface) StdoutLine: {'line': b'[ 76%] Built target pl_interface\n'}
+[26.627684] (-) TimerEvent: {}
+[26.646612] (pl_interface) StdoutLine: {'line': b'[ 78%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[26.727907] (-) TimerEvent: {}
+[26.828788] (-) TimerEvent: {}
+[26.929451] (-) TimerEvent: {}
+[27.030134] (-) TimerEvent: {}
+[27.130817] (-) TimerEvent: {}
+[27.231553] (-) TimerEvent: {}
+[27.332213] (-) TimerEvent: {}
+[27.433043] (-) TimerEvent: {}
+[27.534120] (-) TimerEvent: {}
+[27.634787] (-) TimerEvent: {}
+[27.735516] (-) TimerEvent: {}
+[27.836305] (-) TimerEvent: {}
+[27.937070] (-) TimerEvent: {}
+[28.037889] (-) TimerEvent: {}
+[28.138529] (-) TimerEvent: {}
+[28.239146] (-) TimerEvent: {}
+[28.339772] (-) TimerEvent: {}
+[28.440417] (-) TimerEvent: {}
+[28.541196] (-) TimerEvent: {}
+[28.641878] (-) TimerEvent: {}
+[28.742538] (-) TimerEvent: {}
+[28.843355] (-) TimerEvent: {}
+[28.944565] (-) TimerEvent: {}
+[29.009706] (pl_interface) StdoutLine: {'line': b'[ 78%] Built target pl_interface__py\n'}
+[29.044797] (-) TimerEvent: {}
+[29.097193] (pl_interface) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_generator_py.dir/rosidl_generator_py/pl_interface/msg/_bus_cmd_s.c.o\x1b[0m\n'}
+[29.102377] (pl_interface) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_generator_py.dir/rosidl_generator_py/pl_interface/msg/_bus_reply_s.c.o\x1b[0m\n'}
+[29.103675] (pl_interface) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_generator_py.dir/rosidl_generator_py/pl_interface/srv/_bus_reply_s.c.o\x1b[0m\n'}
+[29.145112] (-) TimerEvent: {}
+[29.247075] (-) TimerEvent: {}
+[29.348574] (-) TimerEvent: {}
+[29.450112] (-) TimerEvent: {}
+[29.550975] (-) TimerEvent: {}
+[29.651885] (-) TimerEvent: {}
+[29.752712] (-) TimerEvent: {}
+[29.851974] (pl_interface) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/pl_interface/libpl_interface__rosidl_generator_py.so\x1b[0m\n'}
+[29.852849] (-) TimerEvent: {}
+[29.953719] (-) TimerEvent: {}
+[30.032385] (pl_interface) StdoutLine: {'line': b'[ 87%] Built target pl_interface__rosidl_generator_py\n'}
+[30.053865] (-) TimerEvent: {}
+[30.121541] (pl_interface) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/pl_interface/_pl_interface_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[30.123124] (pl_interface) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/pl_interface/_pl_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[30.125650] (pl_interface) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/pl_interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/pl_interface/_pl_interface_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[30.154264] (-) TimerEvent: {}
+[30.256717] (-) TimerEvent: {}
+[30.357674] (-) TimerEvent: {}
+[30.458541] (-) TimerEvent: {}
+[30.559548] (-) TimerEvent: {}
+[30.625353] (pl_interface) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/pl_interface/pl_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\x1b[0m\n'}
+[30.638166] (pl_interface) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/pl_interface/pl_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\x1b[0m\n'}
+[30.659782] (-) TimerEvent: {}
+[30.683084] (pl_interface) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/pl_interface/pl_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\x1b[0m\n'}
+[30.761433] (-) TimerEvent: {}
+[30.801007] (pl_interface) StdoutLine: {'line': b'[100%] Built target pl_interface__rosidl_typesupport_c__pyext\n'}
+[30.818412] (pl_interface) StdoutLine: {'line': b'[100%] Built target pl_interface__rosidl_typesupport_introspection_c__pyext\n'}
+[30.861635] (-) TimerEvent: {}
+[30.864610] (pl_interface) StdoutLine: {'line': b'[100%] Built target pl_interface__rosidl_typesupport_fastrtps_c__pyext\n'}
+[30.907007] (pl_interface) CommandEnded: {'returncode': 0}
+[30.961853] (-) TimerEvent: {}
+[31.062654] (-) TimerEvent: {}
+[31.163465] (-) TimerEvent: {}
+[31.264231] (-) TimerEvent: {}
+[31.365383] (-) TimerEvent: {}
+[31.456553] (pl_interface) JobProgress: {'identifier': 'pl_interface', 'progress': 'install'}
+[31.465578] (-) TimerEvent: {}
+[31.492428] (pl_interface) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/egsa/EGSA34_PLD/build/pl_interface'], 'cwd': '/home/egsa/EGSA34_PLD/build/pl_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'egsa'), ('SSH_CLIENT', '172.20.10.3 53884 22'), ('LC_TIME', 'ar_EG.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/egsa/egsa34_pl/install/pl_interface/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/egsa'), ('OLDPWD', '/home/egsa'), ('TERM_PROGRAM_VERSION', '1.84.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-418a2a23-d088-402d-b7b5-4509167d3f38.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'ar_EG.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/egsa/egsa34_pl/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'egsa'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/egsa/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/remote-cli:/home/egsa/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'ar_EG.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'ar_EG.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-7fb5ba8c5f.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/egsa/egsa34_pl/install/pl_interface:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ar_EG.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ar_EG.UTF-8'), ('LC_IDENTIFICATION', 'ar_EG.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/egsa/EGSA34_PLD/build/pl_interface'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '172.20.10.3 53884 172.20.10.8 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/egsa/egsa34_pl/install/pl_interface/local/lib/python3.10/dist-packages:/home/egsa/egsa34_pl/install/egsa34/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ar_EG.UTF-8'), ('LC_PAPER', 'ar_EG.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/egsa/egsa34_pl/install/pl_interface:/home/egsa/egsa34_pl/install/egsa34:/opt/ros/humble')]), 'shell': False}
+[31.521504] (pl_interface) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[31.522461] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/ament_index/resource_index/rosidl_interfaces/pl_interface\n'}
+[31.523727] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface\n'}
+[31.524489] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg\n'}
+[31.525061] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/bus_cmd.h\n'}
+[31.526060] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail\n'}
+[31.526722] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__struct.h\n'}
+[31.527795] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__functions.h\n'}
+[31.528796] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__functions.c\n'}
+[31.530227] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__type_support.h\n'}
+[31.531193] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__functions.h\n'}
+[31.532210] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__struct.h\n'}
+[31.533198] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__type_support.h\n'}
+[31.534286] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__functions.c\n'}
+[31.535291] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/rosidl_generator_c__visibility_control.h\n'}
+[31.536511] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/bus_reply.h\n'}
+[31.537411] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv\n'}
+[31.537956] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail\n'}
+[31.538569] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__struct.h\n'}
+[31.539603] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__functions.c\n'}
+[31.540685] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__functions.h\n'}
+[31.541794] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__type_support.h\n'}
+[31.542811] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/bus_reply.h\n'}
+[31.544296] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/library_path.sh\n'}
+[31.545536] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/library_path.dsv\n'}
+[31.546975] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_generator_c.so\n'}
+[31.549639] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_generator_c.so" to ""\n'}
+[31.550320] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface\n'}
+[31.550771] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg\n'}
+[31.551091] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail\n'}
+[31.551485] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__rosidl_typesupport_fastrtps_c.h\n'}
+[31.552261] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__rosidl_typesupport_fastrtps_c.h\n'}
+[31.553524] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[31.554554] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv\n'}
+[31.554999] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail\n'}
+[31.555370] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__rosidl_typesupport_fastrtps_c.h\n'}
+[31.556689] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_fastrtps_c.so\n'}
+[31.559359] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[31.560036] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface\n'}
+[31.560376] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg\n'}
+[31.560754] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[31.561551] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail\n'}
+[31.561985] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__type_support.c\n'}
+[31.563178] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__rosidl_typesupport_introspection_c.h\n'}
+[31.564286] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__type_support.c\n'}
+[31.565439] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__rosidl_typesupport_introspection_c.h\n'}
+[31.565803] (-) TimerEvent: {}
+[31.566509] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv\n'}
+[31.566997] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail\n'}
+[31.567414] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__type_support.c\n'}
+[31.568585] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__rosidl_typesupport_introspection_c.h\n'}
+[31.570056] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_introspection_c.so\n'}
+[31.572740] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_introspection_c.so" to ""\n'}
+[31.573809] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_c.so\n'}
+[31.575857] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_c.so" to ""\n'}
+[31.576447] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface\n'}
+[31.576929] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg\n'}
+[31.577332] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/bus_reply.hpp\n'}
+[31.577899] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail\n'}
+[31.578367] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__builder.hpp\n'}
+[31.579415] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__struct.hpp\n'}
+[31.580417] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__traits.hpp\n'}
+[31.581451] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__traits.hpp\n'}
+[31.582508] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__struct.hpp\n'}
+[31.583533] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__builder.hpp\n'}
+[31.584497] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/bus_cmd.hpp\n'}
+[31.585458] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv\n'}
+[31.585909] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/bus_reply.hpp\n'}
+[31.586721] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail\n'}
+[31.587117] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__builder.hpp\n'}
+[31.588231] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__struct.hpp\n'}
+[31.589307] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__traits.hpp\n'}
+[31.590477] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface\n'}
+[31.590921] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg\n'}
+[31.591298] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail\n'}
+[31.591681] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[31.592657] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/dds_fastrtps\n'}
+[31.593465] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[31.594627] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[31.595581] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv\n'}
+[31.596007] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail\n'}
+[31.596353] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[31.597443] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/dds_fastrtps\n'}
+[31.598397] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_fastrtps_cpp.so\n'}
+[31.601413] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[31.602067] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface\n'}
+[31.602591] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg\n'}
+[31.602942] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail\n'}
+[31.603310] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__rosidl_typesupport_introspection_cpp.hpp\n'}
+[31.604260] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__rosidl_typesupport_introspection_cpp.hpp\n'}
+[31.605445] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_reply__type_support.cpp\n'}
+[31.606564] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/msg/detail/bus_cmd__type_support.cpp\n'}
+[31.607536] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv\n'}
+[31.607989] (pl_interface) StdoutLine: {'line': b'-- Up-to-date: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail\n'}
+[31.608372] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__rosidl_typesupport_introspection_cpp.hpp\n'}
+[31.609774] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/include/pl_interface/pl_interface/srv/detail/bus_reply__type_support.cpp\n'}
+[31.611226] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_introspection_cpp.so\n'}
+[31.614223] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[31.614820] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_cpp.so\n'}
+[31.617037] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_typesupport_cpp.so" to ""\n'}
+[31.617654] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/pythonpath.sh\n'}
+[31.618628] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/pythonpath.dsv\n'}
+[31.619633] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface-0.0.0-py3.10.egg-info\n'}
+[31.620573] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[31.621756] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[31.622830] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[31.623830] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[31.625066] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface\n'}
+[31.625874] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/_pl_interface_s.ep.rosidl_typesupport_c.c\n'}
+[31.627077] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg\n'}
+[31.627763] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/_bus_reply.py\n'}
+[31.628865] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/_bus_cmd.py\n'}
+[31.630297] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/_bus_reply_s.c\n'}
+[31.658311] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/_bus_cmd_s.c\n'}
+[31.660738] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/__init__.py\n'}
+[31.662953] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/srv\n'}
+[31.664427] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/srv/_bus_reply.py\n'}
+[31.666094] (-) TimerEvent: {}
+[31.667157] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/srv/_bus_reply_s.c\n'}
+[31.668880] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/srv/__init__.py\n'}
+[31.669887] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/__init__.py\n'}
+[31.670887] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/libpl_interface__rosidl_generator_py.so\n'}
+[31.672473] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[31.674087] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[31.675414] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/_pl_interface_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[31.676968] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/_pl_interface_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[31.678440] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[31.766263] (-) TimerEvent: {}
+[31.835815] (pl_interface) StdoutLine: {'line': b"Listing '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface'...\n"}
+[31.837075] (pl_interface) StdoutLine: {'line': b"Compiling '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/__init__.py'...\n"}
+[31.838208] (pl_interface) StdoutLine: {'line': b"Listing '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg'...\n"}
+[31.839155] (pl_interface) StdoutLine: {'line': b"Compiling '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/__init__.py'...\n"}
+[31.840082] (pl_interface) StdoutLine: {'line': b"Compiling '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/_bus_cmd.py'...\n"}
+[31.841069] (pl_interface) StdoutLine: {'line': b"Compiling '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/msg/_bus_reply.py'...\n"}
+[31.841872] (pl_interface) StdoutLine: {'line': b"Listing '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/srv'...\n"}
+[31.842818] (pl_interface) StdoutLine: {'line': b"Compiling '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/srv/__init__.py'...\n"}
+[31.843907] (pl_interface) StdoutLine: {'line': b"Compiling '/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/srv/_bus_reply.py'...\n"}
+[31.861797] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[31.864372] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[31.865979] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[31.866466] (-) TimerEvent: {}
+[31.868764] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[31.870175] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[31.872870] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/local/lib/python3.10/dist-packages/pl_interface/pl_interface_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[31.873541] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_generator_py.so\n'}
+[31.876281] (pl_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/egsa/EGSA34_PLD/install/pl_interface/lib/libpl_interface__rosidl_generator_py.so" to ""\n'}
+[31.876968] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/msg/BusCmd.idl\n'}
+[31.878097] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/msg/BusReply.idl\n'}
+[31.879358] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/srv/BusReply.idl\n'}
+[31.880364] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/msg/BusCmd.msg\n'}
+[31.881423] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/msg/BusReply.msg\n'}
+[31.882441] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/srv/BusReply.srv\n'}
+[31.883410] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/srv/BusReply_Request.msg\n'}
+[31.884499] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/srv/BusReply_Response.msg\n'}
+[31.885923] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/ament_index/resource_index/package_run_dependencies/pl_interface\n'}
+[31.887478] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/ament_index/resource_index/parent_prefix_path/pl_interface\n'}
+[31.888651] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/ament_prefix_path.sh\n'}
+[31.889857] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/ament_prefix_path.dsv\n'}
+[31.890951] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/path.sh\n'}
+[31.892016] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/environment/path.dsv\n'}
+[31.893061] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/local_setup.bash\n'}
+[31.894160] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/local_setup.sh\n'}
+[31.895225] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/local_setup.zsh\n'}
+[31.896231] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/local_setup.dsv\n'}
+[31.897323] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.dsv\n'}
+[31.898668] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/ament_index/resource_index/packages/pl_interface\n'}
+[31.900102] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_generator_cExport.cmake\n'}
+[31.901475] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_generator_cExport-noconfig.cmake\n'}
+[31.902863] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[31.904223] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[31.905888] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_introspection_cExport.cmake\n'}
+[31.907488] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[31.908911] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_cExport.cmake\n'}
+[31.910252] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[31.911679] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_generator_cppExport.cmake\n'}
+[31.913046] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[31.914448] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[31.915849] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[31.917253] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[31.918646] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_cppExport.cmake\n'}
+[31.919916] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interface__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[31.921319] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_generator_pyExport.cmake\n'}
+[31.922833] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/export_pl_interface__rosidl_generator_pyExport-noconfig.cmake\n'}
+[31.924059] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/rosidl_cmake-extras.cmake\n'}
+[31.925170] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[31.926469] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[31.927779] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[31.928941] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[31.930321] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[31.931557] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[31.932742] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interfaceConfig.cmake\n'}
+[31.933731] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/cmake/pl_interfaceConfig-version.cmake\n'}
+[31.934818] (pl_interface) StdoutLine: {'line': b'-- Installing: /home/egsa/EGSA34_PLD/install/pl_interface/share/pl_interface/package.xml\n'}
+[31.942321] (pl_interface) CommandEnded: {'returncode': 0}
+[31.966673] (-) TimerEvent: {}
+[32.067504] (-) TimerEvent: {}
+[32.168192] (-) TimerEvent: {}
+[32.269253] (-) TimerEvent: {}
+[32.369874] (-) TimerEvent: {}
+[32.470758] (-) TimerEvent: {}
+[32.571380] (-) TimerEvent: {}
+[32.672321] (-) TimerEvent: {}
+[32.773512] (-) TimerEvent: {}
+[32.874741] (-) TimerEvent: {}
+[32.976027] (-) TimerEvent: {}
+[33.077485] (-) TimerEvent: {}
+[33.127768] (pl_interface) JobEnded: {'identifier': 'pl_interface', 'rc': 0}
+[33.131584] (-) EventReactorShutdown: {}

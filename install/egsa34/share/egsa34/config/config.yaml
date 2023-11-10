@@ -1,0 +1,9 @@
+bus_interface:
+  ros__parameters:
+    uart_config:
+      ports:
+        port0: "/dev/ttyS0"
+        port1: "/dev/ttyAMA1"
+      baud_rate: 115200
+      parity: 'N'
+      timeout: 0.1
