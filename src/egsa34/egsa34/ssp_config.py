@@ -1,10 +1,11 @@
 import json
+import os
 
 class SSPConfig:
     def __init__(_cfg):
 
         # Load configuration data from 'ssp_config.json' file and set class attributes based on the data.
-        file = open('/home/egsa/egsa34_pl/src/egsa34/config/ssp_config.json')
+        file = open(f'{os.getcwd()}/src/egsa34/config/ssp_config.json')
         ssp_config = json.load(file)
 
         # Configuration related to SSP (Simple Serial Protocol)
