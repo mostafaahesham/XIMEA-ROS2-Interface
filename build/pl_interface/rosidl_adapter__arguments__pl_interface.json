@@ -1,8 +1,0 @@
-{
-  "package_name": "pl_interface",
-  "non_idl_tuples": [
-    "/home/egsa/EGSA34_PLD/src/pl_interface:msg/BusCmd.msg",
-    "/home/egsa/EGSA34_PLD/src/pl_interface:msg/BusReply.msg",
-    "/home/egsa/EGSA34_PLD/src/pl_interface:srv/BusReply.srv"
-  ]
-}

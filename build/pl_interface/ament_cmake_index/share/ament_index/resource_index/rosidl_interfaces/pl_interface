@@ -1,8 +1,0 @@
-msg/BusCmd.idl
-msg/BusCmd.msg
-msg/BusReply.idl
-msg/BusReply.msg
-srv/BusReply.idl
-srv/BusReply.srv
-srv/BusReply_Request.msg
-srv/BusReply_Response.msg
