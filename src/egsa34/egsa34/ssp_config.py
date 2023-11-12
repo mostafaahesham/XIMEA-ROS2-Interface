@@ -7,6 +7,32 @@ class SSPConfig:
         # Load configuration data from 'ssp_config.json' file and set class attributes based on the data.
         file = open(f'{os.getcwd()}/src/egsa34/config/ssp_config.json')
         ssp_config = json.load(file)
+        
+        # _cfg.FRAME =   [_cfg.FLAG,
+        #                 0, # placeholder:dest_addr
+        #                 0, # placeholder:src_addr
+        #                 0, # placeholder:cmd_id
+        #                 0, # placeholer:data_length
+        #             ]
+        
+        # # Error Codes dict for logging purposes
+        # _cfg.errors = {
+        #     "0":"NO_ERR",
+        #     "1":"CRC_ERR",
+        #     "2":"PARAMS_ERR",
+        #     "3":"DEST_ERR",
+        #     "4":"CMD_ERR",
+        #     "5":"OTHER_ERR"
+        # }
+        
+        # # dict for checking datalengths' of associated commands
+        # # key: cmd_id, value: data_length
+        # _cfg.params_check = {
+        #     str(_cfg.cmdPING):0
+        # }
+        
+        # _cfg.allowed_DEST = [_cfg.addrRPI]
+        # _cfg.allowed_CMDS = [_cfg.cmdPING]
 
         # Configuration related to SSP (Simple Serial Protocol)
         # This section defines various configuration parameters for SSP.
@@ -68,5 +94,7 @@ class SSPConfig:
         _cfg.errCRC = ssp_config["errors"]["crc_err"]
         _cfg.errPARAMS = ssp_config["errors"]["params_err"]
         _cfg.errCMD = ssp_config["errors"]["cmd_err"]
-        _cfg.errDEST = ssp_config["errors"]["dest_err"]
         _cfg.errOTHER = ssp_config["errors"]["other_err"]
+        
+        # custom errors
+        _cfg.errDEST = ssp_config["errors"]["dest_err"]

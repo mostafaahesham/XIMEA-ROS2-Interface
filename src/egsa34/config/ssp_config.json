@@ -66,8 +66,8 @@
   {
     "crc_err":1,
     "params_err":2,
-    "dest_err":3,
-    "cmd_err":4,
-    "other_err":5
+    "cmd_err":3,
+    "other_err":4,
+    "dest_err":5
   }
 }

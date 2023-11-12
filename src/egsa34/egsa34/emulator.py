@@ -146,7 +146,7 @@ def main(args=None):
     
     emulator.open_serial_ports()
     
-    emulator.timer = emulator.create_timer(2.0, emulator.timer_callback)
+    emulator.timer = emulator.create_timer(1.0, emulator.timer_callback)
     
     while True:
         # emulator.command_send(emulator.ser_0,0x26,emulator.addr,0x00,[])

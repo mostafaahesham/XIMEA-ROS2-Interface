@@ -96,8 +96,8 @@ class BusInterface(Node,SSP,LogLevel):
                 pass
             
             _tf.serMAIN.write(bytearray(frame))
-            data_len = frame[_tf.idxDATA_LEN]
             
+            # data_len = frame[_tf.idxDATA_LEN]
             # sent = {
             #     "flag_s":frame[_tf.idxSTART_FLAG],
             #     "dest":frame[_tf.idxDEST_ADDR],
@@ -170,7 +170,7 @@ class BusInterface(Node,SSP,LogLevel):
         
         _sb.log('',"listening for commands...")
         cmd_frame = _sb.recieve_frame()
-        if _sb.errCODE == _sb.errCMD or _sb.errCODE == _sb.errDEST:
+        if _sb.errCODE == _sb.errDEST:
             pass
         else:
             _sb.send_request(cmd_frame["cmd"],cmd_frame["data"])
