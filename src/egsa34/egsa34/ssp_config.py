@@ -7,32 +7,6 @@ class SSPConfig:
         # Load configuration data from 'ssp_config.json' file and set class attributes based on the data.
         file = open(f'{os.getcwd()}/src/egsa34/config/ssp_config.json')
         ssp_config = json.load(file)
-        
-        # _cfg.FRAME =   [_cfg.FLAG,
-        #                 0, # placeholder:dest_addr
-        #                 0, # placeholder:src_addr
-        #                 0, # placeholder:cmd_id
-        #                 0, # placeholer:data_length
-        #             ]
-        
-        # # Error Codes dict for logging purposes
-        # _cfg.errors = {
-        #     "0":"NO_ERR",
-        #     "1":"CRC_ERR",
-        #     "2":"PARAMS_ERR",
-        #     "3":"DEST_ERR",
-        #     "4":"CMD_ERR",
-        #     "5":"OTHER_ERR"
-        # }
-        
-        # # dict for checking datalengths' of associated commands
-        # # key: cmd_id, value: data_length
-        # _cfg.params_check = {
-        #     str(_cfg.cmdPING):0
-        # }
-        
-        # _cfg.allowed_DEST = [_cfg.addrRPI]
-        # _cfg.allowed_CMDS = [_cfg.cmdPING]
 
         # Configuration related to SSP (Simple Serial Protocol)
         # This section defines various configuration parameters for SSP.
@@ -86,15 +60,25 @@ class SSPConfig:
         _cfg.addrMULTICAST = ssp_config["addresses"]["multicast_addr"]["multicast"]
         _cfg.addrBROADCAST = ssp_config["addresses"]["multicast_addr"]["broadcast"]
         
+        # Generic Commands
         _cfg.cmdPING = ssp_config["commands"]["generic_commands"]["PING"]
+        
+        # Payload Commands
+        _cfg.cmdRCS = ssp_config["commands"]["payload_commands"]["RCS"]
+        _cfg.cmdGIMG = ssp_config["commands"]["payload_commands"]["GIMG"]
+        _cfg.cmdTIMG = ssp_config["commands"]["payload_commands"]["TIMG"]
+        _cfg.cmdDIMG = ssp_config["commands"]["payload_commands"]["DIMG"]
+        _cfg.cmdCXT = ssp_config["commands"]["payload_commands"]["CXT"]
         
         _cfg.rplyACK = ssp_config["replies"]["generic_replies"]["ACK"]
         _cfg.rplyNACK = ssp_config["replies"]["generic_replies"]["NACK"]
         
+        _cfg.errNONE = ssp_config["errors"]["no_err"]
         _cfg.errCRC = ssp_config["errors"]["crc_err"]
         _cfg.errPARAMS = ssp_config["errors"]["params_err"]
         _cfg.errCMD = ssp_config["errors"]["cmd_err"]
         _cfg.errOTHER = ssp_config["errors"]["other_err"]
+        _cfg.errFRAME = ssp_config["errors"]["frame_err"]
         
-        # custom errors
+        # Custom Errors
         _cfg.errDEST = ssp_config["errors"]["dest_err"]

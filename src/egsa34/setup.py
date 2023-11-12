@@ -25,7 +25,8 @@ setup(
     entry_points={
         'console_scripts': [
             'bus_interface = egsa34.bus_interface:main',
-            "cmd_handler = egsa34.cmd_handler:main",
+            'cmd_handler = egsa34.cmd_handler:main',
+            'ximea = egsa34.ximea:main',
             'emulator = egsa34.emulator:main'
         ],
     },

@@ -6,7 +6,7 @@ import os
 import time
 import threading
 from rclpy.logging import LoggingSeverity
-from pl_interface.msg import BusCmd, BusReply
+
 from pl_interface.srv import BusReply
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -160,17 +160,19 @@ class BusInterface(Node,SSP,LogLevel):
             
             _rf.log('warn',f'{_rf.errors[str(_rf.errCODE)]} <{hex(_rf.errCODE)}>')
             
-            return depacketized_frame
+            return True , depacketized_frame
                 
         except Exception as e:
             _rf.log('status_nok',"error recieving frame")
             _rf.log('err',f'{e}')
             
+            return False, {}
+            
     def standby(_sb):
         
         _sb.log('',"listening for commands...")
-        cmd_frame = _sb.recieve_frame()
-        if _sb.errCODE == _sb.errDEST:
+        reception_status, cmd_frame = _sb.recieve_frame()
+        if _sb.errCODE == _sb.errDEST or _sb.errCODE == _sb.errFRAME or reception_status == False:
             pass
         else:
             _sb.send_request(cmd_frame["cmd"],cmd_frame["data"])

@@ -6,27 +6,33 @@ from launch_ros.actions import Node
 def generate_launch_description():
     ld = LaunchDescription()
 
-    config = os.path.join(
+    bus_interface_config = os.path.join(
         get_package_share_directory('egsa34'),
         'config',
-        'config.yaml'
+        'bus_interface_config.yaml'
         )
         
     bus_interface=Node(
         package = 'egsa34',
         name = 'bus_interface',
         executable = 'bus_interface',
-        parameters = [config]
+        parameters = [bus_interface_config]
     )
     
     cmd_handler=Node(
         package = 'egsa34',
         name = 'cmd_handler',
         executable = 'cmd_handler',
-        parameters = [config]
+    )
+    
+    ximea = Node(
+        package = 'egsa34',
+        name = 'ximea',
+        executable = 'ximea',
     )
 
     ld.add_action(bus_interface)
     ld.add_action(cmd_handler)
+    ld.add_action(ximea)
     
     return ld

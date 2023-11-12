@@ -53,7 +53,13 @@
     },
     "master_commands": {},
     "eps_commands": {},
-    "payload_commands": {}
+    "payload_commands": {
+      "RCS":35,
+      "GIMG":41,
+      "TIMG":40,
+      "DIMG":39,
+      "CXT":38
+    }
   },
   "replies":
   {
@@ -64,10 +70,12 @@
   },
   "errors":
   {
+    "no_err":0,
     "crc_err":1,
     "params_err":2,
     "cmd_err":3,
     "other_err":4,
-    "dest_err":5
+    "dest_err":5,
+    "frame_err":6
   }
 }

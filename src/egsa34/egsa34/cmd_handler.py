@@ -4,6 +4,7 @@ import sys
 import os
 
 from pl_interface.srv import BusReply
+from pl_interface.msg import PldCmd
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
@@ -17,18 +18,27 @@ class CmdHandler(Node,SSP,LogLevel):
         super().__init__('cmd_handler')
         SSP.__init__(_cmd)
         LogLevel.__init__(_cmd)
-        _cmd.cmd_handler_service = _cmd.create_service(BusReply, 'bus_reply', _cmd.reply_callback)
+        
+        _cmd.cmd_handler_service = _cmd.create_service(BusReply, 'bus_reply', _cmd.service_handler)
+        _cmd.publisher = _cmd.create_publisher(PldCmd,'/payloads',10)
+        
+        _cmd.cmd = PldCmd()
         
         _cmd.callbacks = {
-            str(_cmd.cmdPING):_cmd.ping_callback
+            str(_cmd.cmdPING):_cmd.ping_callback,
+            str(_cmd.cmdRCS):_cmd.rcs_callback,
+            str(_cmd.cmdGIMG):_cmd.gimg_callback,
+            str(_cmd.cmdTIMG):_cmd.timg_callback,
+            str(_cmd.cmdDIMG):_cmd.dimg_callback,
+            str(_cmd.cmdCXT):_cmd.cxt_callback,
         }       
 
-    def reply_callback(_cb, req, res):
+    def service_handler(_sh, req, res):
         
-        _cb.log('info',f'{req}')  
+        _sh.log('info',f'{req}')  
                                              
         if req.err:
-            res.cmd = _cb.rplyNACK
+            res.cmd = _sh.rplyNACK
             res.data = [req.cmd,req.err]
             res.data_len = len(res.data)
             res.err = req.err
@@ -36,7 +46,7 @@ class CmdHandler(Node,SSP,LogLevel):
             return res
         
         else:
-            cmd_callback = _cb.callbacks.get(str(req.cmd),_cb.default_callback)
+            cmd_callback = _sh.callbacks.get(str(req.cmd),_sh.default_callback)
             return cmd_callback(req, res)
             
     def ping_callback(_cb,req,res):
@@ -45,6 +55,31 @@ class CmdHandler(Node,SSP,LogLevel):
         res.data = [req.cmd]
         
         return res
+    
+    def rcs_callback(_cb,req,res):
+        pass
+    
+    def gimg_callback(_cb,req,res):
+        
+        _cb.cmd.cmd = req.cmd
+        _cb.cmd.addr = req.data[0]
+        
+        _cb.publisher.publish(_cb.cmd)
+        
+        res.cmd = _cb.rplyACK
+        res.data_len = 1
+        res.data = [req.cmd]
+        
+        return res
+    
+    def timg_callback(_cb,req,res):
+        pass
+    
+    def dimg_callback(_cb,req,res):
+        pass
+    
+    def cxt_callback(_cb,req,res):
+        pass
     
     def default_callback(_cb, req, res):
         _cb.log('info', f'Unknown command: {req.cmd}')

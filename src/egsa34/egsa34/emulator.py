@@ -27,7 +27,7 @@ class Emulator(Node,SSP,LogLevel):
         _emu.parity =  'N'
         _emu.timeout = None
         
-        _emu.rand = [random.randint(0,255) for _ in range(8)]
+        _emu.rand = [random.randint(0,255) for _ in range(248)]
         
         _emu.log('info',f'subsystem <{hex(_emu.addr)}> up and running')
         
@@ -68,7 +68,8 @@ class Emulator(Node,SSP,LogLevel):
                 pass
             
             ser.write(frame)
-            data_len = frame[_cs.idxDATA_LEN]
+            
+            # data_len = frame[_cs.idxDATA_LEN]
             # sent = {
             #     "flag_s":frame[_cs.idxSTART_FLAG],
             #     "dest":frame[_cs.idxDEST_ADDR],
@@ -130,7 +131,7 @@ class Emulator(Node,SSP,LogLevel):
             _rf.log('err',f'{e}')
             
     def timer_callback(_cb):
-        _cb.command_send(_cb.ser_0,0x26,_cb.addr,0x00,_cb.rand)
+        _cb.command_send(_cb.ser_0,_cb.addrRPI,_cb.addr,_cb.cmdGIMG,[_cb.addrXIMEA_PAN])
         _cb.log('',"listening for reply...")
         
             

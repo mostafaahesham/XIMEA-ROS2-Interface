@@ -15,18 +15,20 @@ class SSP(SSPConfig):
         _ssp.errCODE = 0
         
         _ssp.errors = {
-            "0":"NO_ERR",
-            "1":"CRC_ERR",
-            "2":"PARAMS_ERR",
-            "3":"CMD_ERR",
-            "4":"OTHER_ERR",
-            "5":"DEST_ERR",
+            "0":"NO_ERR_SSP",
+            "1":"CRC_ERR_SSP",
+            "2":"PARAMS_ERR_SSP",
+            "3":"CMD_ERR_SSP",
+            "4":"OTHER_ERR_SSP",
+            "5":"DEST_ERR_RPI",
+            "6":"FRAME_ERR_RPI"
         }
         
         # dict for checking datalengths' of associated commands
         # key: cmd_id, value: data_length
         _ssp.params_check = {
-            str(_ssp.cmdPING):0
+            str(_ssp.cmdPING):0,
+            str(_ssp.cmdGIMG):1
         }
         
         _ssp.FRAME =   [_ssp.FLAG,
@@ -37,7 +39,14 @@ class SSP(SSPConfig):
                     ]
         
         _ssp.allowed_DEST = [_ssp.addrRPI]
-        _ssp.allowed_CMDS = [_ssp.cmdPING]
+        _ssp.allowed_CMDS = [
+                            _ssp.cmdPING,
+                            _ssp.cmdRCS,
+                            _ssp.cmdGIMG,
+                            _ssp.cmdTIMG,
+                            _ssp.cmdDIMG,
+                            _ssp.cmdCXT
+                        ]
         
     def get_member_variables(self):
         attributes = [attr for attr in dir(self) if not callable(getattr(self, attr)) and not attr.startswith("__")]
@@ -55,7 +64,7 @@ class SSP(SSPConfig):
         crc_0 , crc_1 = _chk.calc_crc(frame[_chk.idxDEST_ADDR:_chk.idxCRC_0])
         
         try:
-            assert frame[_chk.idxSTART_FLAG] == 0xC0 and frame[_chk.idxEND_FLAG] == 0xC0, _chk.errOTHER
+            assert frame[_chk.idxSTART_FLAG] == 0xC0 and frame[_chk.idxEND_FLAG] == 0xC0, _chk.errFRAME
             assert frame[_chk.idxCRC_0] == crc_0 and frame[_chk.idxCRC_1] == crc_1, _chk.errCRC
             assert frame[_chk.idxDEST_ADDR] in _chk.allowed_DEST, _chk.errDEST
             assert frame[_chk.idxCMD_ID] in _chk.allowed_CMDS, _chk.errCMD
