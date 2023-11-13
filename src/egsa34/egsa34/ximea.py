@@ -23,7 +23,7 @@ class Ximea(Node,LogLevel):
         
         _x.cam = xiapi.Camera()
         _x.cam.set_debug_level("XI_DL_WARNING")
-        _x.cam.open_device()
+        # _x.cam.open_device()
         
     def log(_log,type,log):
         match type:

@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 import serial
+from serial import SerialException
 import sys
 import os
 import time
@@ -48,15 +49,17 @@ class Emulator(Node,SSP,LogLevel):
         
     def open_serial_ports(_osp):
         try:
-            _osp.ser_0 = serial.Serial(port=_osp.uart_port_0, baudrate=_osp.baud_rate, timeout=_osp.timeout)
-            _osp.log('status_ok',f'successfully opened comm port {_osp.ser_0.name}')
-        except Exception as e:
+            _osp.SER0 = serial.Serial(port=_osp.uart_port_0, baudrate=_osp.baud_rate, parity=_osp.parity, timeout=_osp.timeout)
+            _osp.log('status_ok',f'successfully opened comm port {_osp.SER0.name}')
+        except SerialException as e:
+            _osp.sysERR_CODE = _osp.errPORT0
             _osp.log('status_nok',f"couldn't open comm port {_osp.uart_port_0}")
             _osp.log('err',f'{e}')
         try:
-            _osp.ser_1 = serial.Serial(port=_osp.uart_port_1, baudrate=_osp.baud_rate, timeout=_osp.timeout)
-            _osp.log('status_ok',f'successfully opened comm port {_osp.ser_1.name}')
-        except Exception as e:
+            _osp.SER1 = serial.Serial(port=_osp.uart_port_1, baudrate=_osp.baud_rate, parity=_osp.parity, timeout=_osp.timeout)
+            _osp.log('status_ok',f'successfully opened comm port {_osp.SER1.name}')
+        except SerialException as e:
+            _osp.sysERR_CODE = _osp.errPORT1
             _osp.log('status_nok',f"couldn't open comm port {_osp.uart_port_1}")
             _osp.log('err',f'{e}')
     
@@ -131,7 +134,7 @@ class Emulator(Node,SSP,LogLevel):
             _rf.log('err',f'{e}')
             
     def timer_callback(_cb):
-        _cb.command_send(_cb.ser_0,_cb.addrRPI,_cb.addr,_cb.cmdGIMG,[_cb.addrXIMEA_PAN])
+        _cb.command_send(_cb.SER0,_cb.addrRPI,_cb.addr,_cb.cmdTEST,_cb.rand)
         _cb.log('',"listening for reply...")
         
             
@@ -151,7 +154,7 @@ def main(args=None):
     
     while True:
         # emulator.command_send(emulator.ser_0,0x26,emulator.addr,0x00,[])
-        emulator.recieve_frame(emulator.ser_0)
+        emulator.recieve_frame(emulator.SER0)
         # time.sleep(0.01)        
 
     nodeExecutor_thread.join()

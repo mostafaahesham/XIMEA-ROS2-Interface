@@ -12,23 +12,33 @@ class SSP(SSPConfig):
     def __init__(_ssp):
         SSPConfig.__init__(_ssp)
         
-        _ssp.errCODE = 0
+        _ssp.sspERR_CODE = 0
+        _ssp.sysERR_CODE = 0
         
-        _ssp.errors = {
-            "0":"NO_ERR_SSP",
-            "1":"CRC_ERR_SSP",
-            "2":"PARAMS_ERR_SSP",
-            "3":"CMD_ERR_SSP",
-            "4":"OTHER_ERR_SSP",
-            "5":"DEST_ERR_RPI",
-            "6":"FRAME_ERR_RPI"
+        _ssp.ssp_errors = {
+            "0":"SSP_NO_ERR",
+            "1":"SSP_CRC_ERR",
+            "2":"SSP_PARAMS_ERR",
+            "3":"SSP_CMD_ERR",
+            "4":"SSP_OTHER_ERR"
+        }
+        
+        _ssp.sys_errors = {
+            "0":"SSP_NO_ERR",
+            "255":"SYS_FRAME_ERR_",
+            "254":"SYS_DEST_ERR",
+            "253":"SYS_PORT0_ERR",
+            "252":"SYS_PORT1_ERR",
+            "251":"SYS_TX_ERR",
+            "250":"SYS_RX_ERR"
         }
         
         # dict for checking datalengths' of associated commands
         # key: cmd_id, value: data_length
         _ssp.params_check = {
             str(_ssp.cmdPING):0,
-            str(_ssp.cmdGIMG):1
+            str(_ssp.cmdGIMG):1,
+            str(_ssp.cmdTEST):248
         }
         
         _ssp.FRAME =   [_ssp.FLAG,
@@ -40,6 +50,7 @@ class SSP(SSPConfig):
         
         _ssp.allowed_DEST = [_ssp.addrRPI]
         _ssp.allowed_CMDS = [
+                            _ssp.cmdTEST,
                             _ssp.cmdPING,
                             _ssp.cmdRCS,
                             _ssp.cmdGIMG,
@@ -47,12 +58,6 @@ class SSP(SSPConfig):
                             _ssp.cmdDIMG,
                             _ssp.cmdCXT
                         ]
-        
-    def get_member_variables(self):
-        attributes = [attr for attr in dir(self) if not callable(getattr(self, attr)) and not attr.startswith("__")]
-        for attr in attributes:
-            value = getattr(self, attr)
-            print(f"{attr}: {value}")
             
     def calc_crc(_crc,data):
 
@@ -60,23 +65,20 @@ class SSP(SSPConfig):
         return crc[0], crc[1] 
     
     def analyze_frame(_chk,frame):
-        data_len = frame[_chk.idxDATA_LEN]
-        crc_0 , crc_1 = _chk.calc_crc(frame[_chk.idxDEST_ADDR:_chk.idxCRC_0])
-        
         try:
+            crc_0 , crc_1 = _chk.calc_crc(frame[_chk.idxDEST_ADDR:_chk.idxCRC_0])
+        
             assert frame[_chk.idxSTART_FLAG] == 0xC0 and frame[_chk.idxEND_FLAG] == 0xC0, _chk.errFRAME
             assert frame[_chk.idxCRC_0] == crc_0 and frame[_chk.idxCRC_1] == crc_1, _chk.errCRC
-            assert frame[_chk.idxDEST_ADDR] in _chk.allowed_DEST, _chk.errDEST
-            assert frame[_chk.idxCMD_ID] in _chk.allowed_CMDS, _chk.errCMD
             assert frame[_chk.idxDATA_LEN] == _chk.params_check[str(frame[_chk.idxCMD_ID])], _chk.errPARAMS
             
-            _chk.errCODE = 0
+            _chk.sspERR_CODE = 0
             
-            return _chk.errCODE
+            return _chk.sspERR_CODE
             
         except AssertionError as e:
-            _chk.errCODE = e.args[0]
-            return _chk.errCODE
+            _chk.sspERR_CODE = e.args[0]
+            return _chk.sspERR_CODE
 
     def packetize(_pkt,dest,src,cmd,data):
         
@@ -101,9 +103,10 @@ class SSP(SSPConfig):
     
     def depacketize(_dpkt,frame):
     
-        if _dpkt.analyze_frame(frame) == _dpkt.errDEST:
+        if _dpkt.analyze_frame(frame) != _dpkt.errNONE:
                 return {
-                "status":_dpkt.errors[str(_dpkt.errCODE)]
+                "ssp_status":_dpkt.ssp_errors[str(_dpkt.sspERR_CODE)],
+                "sys_status":_dpkt.sys_errors[str(_dpkt.sysERR_CODE)],
             }
         else:
             data_len = frame[_dpkt.idxDATA_LEN]

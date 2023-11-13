@@ -82,7 +82,7 @@ class CmdHandler(Node,SSP,LogLevel):
         pass
     
     def default_callback(_cb, req, res):
-        _cb.log('info', f'Unknown command: {req.cmd}')
+        _cb.log('error', f'Unknown command: {req.cmd}')
     
         return res
 

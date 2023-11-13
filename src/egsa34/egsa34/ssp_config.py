@@ -60,6 +60,9 @@ class SSPConfig:
         _cfg.addrMULTICAST = ssp_config["addresses"]["multicast_addr"]["multicast"]
         _cfg.addrBROADCAST = ssp_config["addresses"]["multicast_addr"]["broadcast"]
         
+        # Test Commands
+        _cfg.cmdTEST = 255
+        
         # Generic Commands
         _cfg.cmdPING = ssp_config["commands"]["generic_commands"]["PING"]
         
@@ -73,12 +76,19 @@ class SSPConfig:
         _cfg.rplyACK = ssp_config["replies"]["generic_replies"]["ACK"]
         _cfg.rplyNACK = ssp_config["replies"]["generic_replies"]["NACK"]
         
-        _cfg.errNONE = ssp_config["errors"]["no_err"]
-        _cfg.errCRC = ssp_config["errors"]["crc_err"]
-        _cfg.errPARAMS = ssp_config["errors"]["params_err"]
-        _cfg.errCMD = ssp_config["errors"]["cmd_err"]
-        _cfg.errOTHER = ssp_config["errors"]["other_err"]
-        _cfg.errFRAME = ssp_config["errors"]["frame_err"]
         
-        # Custom Errors
-        _cfg.errDEST = ssp_config["errors"]["dest_err"]
+        # SSP Errors (sspERR_CODE)
+        _cfg.errNONE = ssp_config["ssp_errors"]["no_err"]
+        _cfg.errCRC = ssp_config["ssp_errors"]["crc_err"]
+        _cfg.errPARAMS = ssp_config["ssp_errors"]["params_err"]
+        _cfg.errCMD = ssp_config["ssp_errors"]["cmd_err"]
+        _cfg.errOTHER = ssp_config["ssp_errors"]["other_err"]
+        
+        # System Errors (sysERR_CODE)
+        _cfg.errNONE = ssp_config["sys_errors"]["no_err"]
+        _cfg.errFRAME = ssp_config["sys_errors"]["frame_err"]
+        _cfg.errDEST = ssp_config["sys_errors"]["dest_err"]
+        _cfg.errPORT0 = ssp_config["sys_errors"]["port0_error"]
+        _cfg.errPORT1 = ssp_config["sys_errors"]["port1_error"]
+        _cfg.errTX = ssp_config["sys_errors"]["transmit_error"]
+        _cfg.errRX = ssp_config["sys_errors"]["recieve_error"]
