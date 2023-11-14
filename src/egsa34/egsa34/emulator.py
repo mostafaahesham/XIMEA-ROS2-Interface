@@ -134,8 +134,8 @@ class Emulator(Node,SSP,LogLevel):
             _rf.log('err',f'{e}')
             
     def timer_callback(_cb):
-        _cb.command_send(_cb.SER0,_cb.addrRPI,0x50,_cb.cmdPING,[])
-        _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdPING,[])
+        _cb.command_send(_cb.SER0,_cb.addrRPI,0x50,_cb.cmdWD,_cb.rand)
+        _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdWD,_cb.rand)
         _cb.log('',"listening for reply...")
         
     def standby_p0(_cb):
@@ -164,7 +164,7 @@ def main(args=None):
     sb_0.start()
     sb_1.start()
     
-    emulator.timer = emulator.create_timer(0.1, emulator.timer_callback)   
+    emulator.timer = emulator.create_timer(1.0, emulator.timer_callback)   
 
     nodeExecutor_thread.join()
     sb_0.join()

@@ -19,13 +19,27 @@ class CmdHandler(Node,SSP,LogLevel):
         SSP.__init__(_cmd)
         LogLevel.__init__(_cmd)
         
-        _cmd.cmd_handler_service = _cmd.create_service(BusReply, 'bus_reply', _cmd.service_handler)
+        # _cmd._allow_undeclared_parameters = True
+        
+        # _cmd.namespace = _cmd.get_namespace()
+        # _cmd.ns = _cmd.namespace
+        
+        # _cmd.declare_parameters(
+        # namespace=_cmd.namespace,
+        # parameters=[
+        #     ('services.cmd_srv',"")
+        # ])
+        
+        # _cmd.cmd_service_name = _cmd.get_parameter('services.cmd_srv').value
+        # _cmd.log('warn',f'{_cmd.cmd_service_name}') 
+        _cmd.cmd_handler_service = _cmd.create_service(BusReply, 'cmd_srv', _cmd.service_handler)
         _cmd.publisher = _cmd.create_publisher(PldCmd,'/payloads',10)
         
         _cmd.cmd = PldCmd()
         
         _cmd.callbacks = {
             str(_cmd.cmdPING):_cmd.ping_callback,
+            str(_cmd.cmdWD):_cmd.wd_callback,
             str(_cmd.cmdRCS):_cmd.rcs_callback,
             str(_cmd.cmdGIMG):_cmd.gimg_callback,
             str(_cmd.cmdTIMG):_cmd.timg_callback,
@@ -50,6 +64,13 @@ class CmdHandler(Node,SSP,LogLevel):
             return cmd_callback(req, res)
             
     def ping_callback(_cb,req,res):
+        res.cmd = _cb.rplyACK
+        res.data_len = 1
+        res.data = [req.cmd]
+        
+        return res
+    
+    def wd_callback(_cb,req,res):
         res.cmd = _cb.rplyACK
         res.data_len = 1
         res.data = [req.cmd]

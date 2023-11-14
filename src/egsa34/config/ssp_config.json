@@ -49,7 +49,8 @@
   },
   "commands": {
     "generic_commands": {
-      "PING":0
+      "PING":0,
+      "WD":7
     },
     "master_commands": {},
     "eps_commands": {},

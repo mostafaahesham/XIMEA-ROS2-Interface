@@ -6,10 +6,10 @@ from launch_ros.actions import Node
 def generate_launch_description():
     ld = LaunchDescription()
 
-    bus_interface_config = os.path.join(
+    config = os.path.join(
         get_package_share_directory('egsa34'),
         'config',
-        'bus_interface_config.yaml'
+        'config.yaml'
         )
         
     bus_interface_0=Node(
@@ -18,9 +18,9 @@ def generate_launch_description():
         name = 'bus_interface',
         executable = 'bus_interface',
         remappings=[
-        ('/p0/bus_reply', '/bus_reply'),
+        ('/p0/cmd_srv', '/cmd_srv'),
         ],
-        parameters = [bus_interface_config]
+        parameters = [config]
     )
     
     bus_interface_1=Node(
@@ -29,15 +29,16 @@ def generate_launch_description():
         name = 'bus_interface',
         executable = 'bus_interface',
         remappings=[
-        ('/p1/bus_reply', '/bus_reply'),
+        ('/p1/cmd_srv', '/cmd_srv'),
         ],
-        parameters = [bus_interface_config]
+        parameters = [config]
     )
     
     cmd_handler=Node(
         package = 'egsa34',
         name = 'cmd_handler',
         executable = 'cmd_handler',
+        parameters = [config]
     )
     
     ximea = Node(

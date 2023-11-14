@@ -60,11 +60,9 @@ class SSPConfig:
         _cfg.addrMULTICAST = ssp_config["addresses"]["multicast_addr"]["multicast"]
         _cfg.addrBROADCAST = ssp_config["addresses"]["multicast_addr"]["broadcast"]
         
-        # Test Commands
-        _cfg.cmdTEST = 255
-        
         # Generic Commands
         _cfg.cmdPING = ssp_config["commands"]["generic_commands"]["PING"]
+        _cfg.cmdWD = ssp_config["commands"]["generic_commands"]["WD"]
         
         # Payload Commands
         _cfg.cmdRCS = ssp_config["commands"]["payload_commands"]["RCS"]

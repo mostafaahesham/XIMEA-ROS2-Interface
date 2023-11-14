@@ -7,3 +7,6 @@
       baud_rate: 115200
       parity: 'N'
       timeout: 0.1
+
+    services:
+      cmd_srv: "cmd_srv"

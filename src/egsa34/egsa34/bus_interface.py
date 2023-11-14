@@ -6,7 +6,6 @@ import sys
 import os
 import time
 import threading
-from rclpy.logging import LoggingSeverity
 
 from pl_interface.srv import BusReply
 
@@ -34,11 +33,14 @@ class BusInterface(Node,SSP,LogLevel):
                 ('uart_config.baud_rate', 0),
                 ('uart_config.parity', ""),
                 ('uart_config.timeout', 0.0),
+                ('services.cmd_srv',"")
             ])
         _bus.portUART = _bus.get_parameter(f'{_bus.namespace}.uart_config.ports.{_bus.ns}').value
         _bus.baudRATE = _bus.get_parameter(f'{_bus.namespace}.uart_config.baud_rate').value
         _bus.PARITY = _bus.get_parameter(f'{_bus.namespace}.uart_config.parity').value 
         _bus.TIMEOUT = _bus.get_parameter(f'{_bus.namespace}.uart_config.timeout').value
+        
+        _bus.cmd_service_name = _bus.get_parameter(f'{_bus.namespace}.services.cmd_srv').value
         
         _bus.addr = addr
         _bus.SER = None
@@ -48,7 +50,7 @@ class BusInterface(Node,SSP,LogLevel):
         _bus.log('warn',f'{_bus.portUART}')
         
         
-        _bus.bus_client = _bus.create_client(BusReply, 'bus_reply')       
+        _bus.bus_client = _bus.create_client(BusReply, _bus.cmd_service_name)       
         while not _bus.bus_client.wait_for_service(timeout_sec=1.0):
             _bus.log('',f'waiting for <{_bus.bus_client.srv_name}> service')
         _bus.log('status_ok',f'service <{_bus.bus_client.srv_name}> ready')
@@ -90,6 +92,9 @@ class BusInterface(Node,SSP,LogLevel):
             _osp.SER = serial.Serial(port=_osp.portUART, baudrate=_osp.baudRATE, parity=_osp.PARITY, timeout=_osp.TIMEOUT)
             _osp.log('status_ok',f'successfully opened comm port {_osp.SER.name}')
         except SerialException as e:
+            
+            _osp.sysERR_CODE = list(_osp.sys_errors.keys())[list(_osp.sys_errors.values()).index(f'SYS_PORT{_osp.ns[-1]}_ERR')]
+
             _osp.log('status_nok',f"couldn't open comm port {_osp.portUART}")
             _osp.log('err',f'{e}')
             

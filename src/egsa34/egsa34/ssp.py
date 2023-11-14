@@ -24,7 +24,7 @@ class SSP(SSPConfig):
         }
         
         _ssp.sys_errors = {
-            "0":"SSP_NO_ERR",
+            "0":"SYS_NO_ERR",
             "255":"SYS_FRAME_ERR_",
             "254":"SYS_DEST_ERR",
             "253":"SYS_PORT0_ERR",
@@ -38,7 +38,7 @@ class SSP(SSPConfig):
         _ssp.params_check = {
             str(_ssp.cmdPING):0,
             str(_ssp.cmdGIMG):1,
-            str(_ssp.cmdTEST):248
+            str(_ssp.cmdWD):248
         }
         
         _ssp.FRAME =   [_ssp.FLAG,
@@ -50,8 +50,8 @@ class SSP(SSPConfig):
         
         _ssp.allowed_DEST = [_ssp.addrRPI]
         _ssp.allowed_CMDS = [
-                            _ssp.cmdTEST,
                             _ssp.cmdPING,
+                            _ssp.cmdWD,
                             _ssp.cmdRCS,
                             _ssp.cmdGIMG,
                             _ssp.cmdTIMG,
