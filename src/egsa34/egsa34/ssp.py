@@ -64,14 +64,16 @@ class SSP(SSPConfig):
         crc = crc16.mcrf4xx(bytes(data),0xFFFF).to_bytes(2,"little")
         return crc[0], crc[1] 
     
-    def analyze_frame(_chk,frame):
+    def analyze_frame(_chk,frame,type='c'):
         try:
             crc_0 , crc_1 = _chk.calc_crc(frame[_chk.idxDEST_ADDR:_chk.idxCRC_0])
         
             assert frame[_chk.idxSTART_FLAG] == 0xC0 and frame[_chk.idxEND_FLAG] == 0xC0, _chk.errFRAME
             assert frame[_chk.idxCRC_0] == crc_0 and frame[_chk.idxCRC_1] == crc_1, _chk.errCRC
-            assert frame[_chk.idxDATA_LEN] == _chk.params_check[str(frame[_chk.idxCMD_ID])], _chk.errPARAMS
-            
+            if type == 'c':
+                assert frame[_chk.idxDATA_LEN] == _chk.params_check[str(frame[_chk.idxCMD_ID])], _chk.errPARAMS
+            else:
+                pass
             _chk.sspERR_CODE = 0
             
             return _chk.sspERR_CODE
@@ -101,9 +103,9 @@ class SSP(SSPConfig):
         
         return _pkt.FRAME
     
-    def depacketize(_dpkt,frame):
+    def depacketize(_dpkt,frame,type='c'):
     
-        if _dpkt.analyze_frame(frame) != _dpkt.errNONE:
+        if _dpkt.analyze_frame(frame,type) != _dpkt.errNONE:
                 return {
                 "ssp_status":_dpkt.ssp_errors[str(_dpkt.sspERR_CODE)],
                 "sys_status":_dpkt.sys_errors[str(_dpkt.sysERR_CODE)],

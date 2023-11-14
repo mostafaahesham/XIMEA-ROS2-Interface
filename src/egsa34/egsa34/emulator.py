@@ -113,7 +113,7 @@ class Emulator(Node,SSP,LogLevel):
                 temp = ser.read(data_length + 3)
                 frame += temp
                 
-            depacketized_frame = _rf.depacketize(frame)
+            depacketized_frame = _rf.depacketize(frame,'r')
             
             # detailed_debug = {
             #     key: ' '.join([f'{byte:02X}' for byte in value]) if key == 'data' and isinstance(value, bytes) else
@@ -125,7 +125,7 @@ class Emulator(Node,SSP,LogLevel):
             # _rf.log('status_ok',f'recieved {detailed_debug} from {ser.name}')
             
             debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
-            _rf.log('status_ok',f"recieved -> {debug}")
+            _rf.log('status_ok',f"recieved -> {debug} from {ser.name}")
             
             return depacketized_frame
         
@@ -134,9 +134,17 @@ class Emulator(Node,SSP,LogLevel):
             _rf.log('err',f'{e}')
             
     def timer_callback(_cb):
-        _cb.command_send(_cb.SER0,_cb.addrRPI,_cb.addr,_cb.cmdPING,[])
+        _cb.command_send(_cb.SER0,_cb.addrRPI,0x50,_cb.cmdPING,[])
+        _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdPING,[])
         _cb.log('',"listening for reply...")
         
+    def standby_p0(_cb):
+        while True:
+            _cb.recieve_frame(_cb.SER0)
+            
+    def standby_p1(_cb): 
+        while True:
+            _cb.recieve_frame(_cb.SER1)           
             
 def main(args=None):
     rclpy.init(args=args)
@@ -148,16 +156,19 @@ def main(args=None):
     nodeExecutor_thread = threading.Thread(target=nodeExecutor_thread.spin, daemon=True)
     nodeExecutor_thread.start()
     
+    sb_0 = threading.Thread(target=emulator.standby_p0)
+    sb_1 = threading.Thread(target=emulator.standby_p1)
+    
     emulator.open_serial_ports()
     
-    emulator.timer = emulator.create_timer(1.0, emulator.timer_callback)
+    sb_0.start()
+    sb_1.start()
     
-    while True:
-        # emulator.command_send(emulator.ser_0,0x26,emulator.addr,0x00,[])
-        emulator.recieve_frame(emulator.SER0)
-        # time.sleep(0.01)        
+    emulator.timer = emulator.create_timer(0.1, emulator.timer_callback)   
 
     nodeExecutor_thread.join()
+    sb_0.join()
+    sb_1.join()
 
 if __name__ == '__main__':
     main()
