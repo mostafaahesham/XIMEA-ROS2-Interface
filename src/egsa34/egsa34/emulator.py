@@ -134,7 +134,7 @@ class Emulator(Node,SSP,LogLevel):
             _rf.log('err',f'{e}')
             
     def timer_callback(_cb):
-        _cb.command_send(_cb.SER0,_cb.addrRPI,_cb.addr,_cb.cmdTEST,_cb.rand)
+        _cb.command_send(_cb.SER0,_cb.addrRPI,_cb.addr,_cb.cmdPING,[])
         _cb.log('',"listening for reply...")
         
             

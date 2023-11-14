@@ -21,28 +21,32 @@ class BusInterface(Node,SSP,LogLevel):
         super().__init__('bus_interface')
         SSP.__init__(_bus)
         LogLevel.__init__(_bus)
+        
+        _bus._allow_undeclared_parameters = True
+        
+        _bus.namespace = _bus.get_namespace()
+        _bus.ns = _bus.namespace[1:]
+        
         _bus.declare_parameters(
-            namespace='',
+            namespace=_bus.namespace,
             parameters=[
-                ('uart_config.ports.port0', ""),
-                ('uart_config.ports.port1', ""),
+                (f'uart_config.ports.{_bus.ns}', ""),
                 ('uart_config.baud_rate', 0),
                 ('uart_config.parity', ""),
                 ('uart_config.timeout', 0.0),
             ])
-        _bus.portUART0 = _bus.get_parameter("uart_config.ports.port0").value
-        _bus.portUART1 = _bus.get_parameter("uart_config.ports.port1").value
-        _bus.baudRATE = _bus.get_parameter("uart_config.baud_rate").value
-        _bus.PARITY = _bus.get_parameter("uart_config.parity").value 
-        _bus.TIMEOUT = _bus.get_parameter("uart_config.timeout").value
-        
-        _bus.SER0 = None
-        _bus.SER1 = None
-        _bus.serMAIN = None
+        _bus.portUART = _bus.get_parameter(f'{_bus.namespace}.uart_config.ports.{_bus.ns}').value
+        _bus.baudRATE = _bus.get_parameter(f'{_bus.namespace}.uart_config.baud_rate').value
+        _bus.PARITY = _bus.get_parameter(f'{_bus.namespace}.uart_config.parity').value 
+        _bus.TIMEOUT = _bus.get_parameter(f'{_bus.namespace}.uart_config.timeout').value
         
         _bus.addr = addr
+        _bus.SER = None
         
         _bus.log('info',f'subsystem <{hex(_bus.addr)}> up and running')
+        
+        _bus.log('warn',f'{_bus.portUART}')
+        
         
         _bus.bus_client = _bus.create_client(BusReply, 'bus_reply')       
         while not _bus.bus_client.wait_for_service(timeout_sec=1.0):
@@ -81,28 +85,20 @@ class BusInterface(Node,SSP,LogLevel):
             case _:
                 _log.get_logger().info(f'{_log.darkgrey}{log}{_log.reset}')
         
-    def open_serial_ports(_osp):
+    def open_serial_port(_osp):
         try:
-            _osp.SER0 = serial.Serial(port=_osp.portUART0, baudrate=_osp.baudRATE, parity=_osp.PARITY, timeout=_osp.TIMEOUT)
-            _osp.log('status_ok',f'successfully opened comm port {_osp.SER0.name}')
+            _osp.SER = serial.Serial(port=_osp.portUART, baudrate=_osp.baudRATE, parity=_osp.PARITY, timeout=_osp.TIMEOUT)
+            _osp.log('status_ok',f'successfully opened comm port {_osp.SER.name}')
         except SerialException as e:
-            _osp.sysERR_CODE = _osp.errPORT0
-            _osp.log('status_nok',f"couldn't open comm port {_osp.portUART0}")
-            _osp.log('err',f'{e}')
-        try:
-            _osp.SER1 = serial.Serial(port=_osp.portUART1, baudrate=_osp.baudRATE, parity=_osp.PARITY, timeout=_osp.TIMEOUT)
-            _osp.log('status_ok',f'successfully opened comm port {_osp.SER1.name}')
-        except SerialException as e:
-            _osp.sysERR_CODE = _osp.errPORT1
-            _osp.log('status_nok',f"couldn't open comm port {_osp.portUART1}")
+            _osp.log('status_nok',f"couldn't open comm port {_osp.portUART}")
             _osp.log('err',f'{e}')
             
     def transmit_frame(_tf,frame):
         try:
-            while _tf.serMAIN.out_waiting:
+            while _tf.SER.out_waiting:
                 pass
             
-            _tf.serMAIN.write(bytearray(frame))
+            _tf.SER.write(bytearray(frame))
             
             # data_len = frame[_tf.idxDATA_LEN]
             # sent = {
@@ -123,7 +119,7 @@ class BusInterface(Node,SSP,LogLevel):
             #     str(value)
             #     for key, value in sent.items()
             # }
-            # _tf.log('status_ok',f"reply -> {detailed_debug} on {_tf.serMAIN.name}")
+            # _tf.log('status_ok',f"reply -> {detailed_debug} on {_tf.SER.name}")
             
             debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
             _tf.log('status_ok',f"reply -> {debug}")
@@ -137,17 +133,11 @@ class BusInterface(Node,SSP,LogLevel):
     def recieve_frame(_rf):
         frame = b''
         try:
-            while not (_rf.SER0.in_waiting or _rf.SER1.in_waiting):
+            while not _rf.SER.in_waiting:
                 pass
-            
-            if _rf.SER0.in_waiting:
-                _rf.serMAIN = _rf.SER0
-                
-            if _rf.SER1.in_waiting:
-                _rf.serMAIN = _rf.SER1
         
-            while _rf.serMAIN.in_waiting:
-                temp = _rf.serMAIN.read(5)
+            while _rf.SER.in_waiting:
+                temp = _rf.SER.read(5)
                 
                 assert temp[_rf.idxSTART_FLAG] == _rf.FLAG, _rf.errFRAME
                 assert temp[_rf.idxDEST_ADDR] == _rf.addr, _rf.errDEST
@@ -156,7 +146,7 @@ class BusInterface(Node,SSP,LogLevel):
                 
                 data_length = temp[-1]
                 frame += temp
-                temp = _rf.serMAIN.read(data_length + 3)
+                temp = _rf.SER.read(data_length + 3)
                 frame += temp
                 
                 _rf.sspERR_CODE = 0
@@ -171,7 +161,7 @@ class BusInterface(Node,SSP,LogLevel):
             #     str(value)
             #     for key, value in depacketized_frame.items()
             # }
-            # _rf.log('status_ok',f'recieved {detailed_debug} from {_rf.serMAIN.name}')
+            # _rf.log('status_ok',f'recieved {detailed_debug} from {_rf.SER.name}')
             
             debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
             _rf.log('status_ok',f"recieved -> {debug}")
@@ -229,7 +219,7 @@ def main(args=None):
     nodeExecutor_thread = threading.Thread(target=nodeExecutor_thread.spin, daemon=True)
     nodeExecutor_thread.start()
     
-    bus_interface.open_serial_ports()
+    bus_interface.open_serial_port()
     
     while True:
         bus_interface.standby()

@@ -12,10 +12,25 @@ def generate_launch_description():
         'bus_interface_config.yaml'
         )
         
-    bus_interface=Node(
+    bus_interface_0=Node(
+        namespace='p0',
         package = 'egsa34',
         name = 'bus_interface',
         executable = 'bus_interface',
+        remappings=[
+        ('/p0/bus_reply', '/bus_reply'),
+        ],
+        parameters = [bus_interface_config]
+    )
+    
+    bus_interface_1=Node(
+        namespace='p1',
+        package = 'egsa34',
+        name = 'bus_interface',
+        executable = 'bus_interface',
+        remappings=[
+        ('/p1/bus_reply', '/bus_reply'),
+        ],
         parameters = [bus_interface_config]
     )
     
@@ -31,7 +46,8 @@ def generate_launch_description():
         executable = 'ximea',
     )
 
-    ld.add_action(bus_interface)
+    ld.add_action(bus_interface_0)
+    ld.add_action(bus_interface_1)
     ld.add_action(cmd_handler)
     ld.add_action(ximea)
     
