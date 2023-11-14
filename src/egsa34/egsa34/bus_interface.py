@@ -1,5 +1,7 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.signals import SignalHandlerOptions
+
 import serial
 from serial import SerialException
 import sys
@@ -231,7 +233,7 @@ class BusInterface(Node,SSP,LogLevel):
         
 
 def main(args=None):
-    rclpy.init(args=args)
+    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
 
     bus_interface = BusInterface(0x26)
     

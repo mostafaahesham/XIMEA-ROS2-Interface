@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from rclpy.logging import LoggingSeverity
+from rclpy.signals import SignalHandlerOptions
 import sys
 import os
 import time
@@ -44,7 +44,7 @@ class Ximea(Node,LogLevel):
         _cb.log('warn',f'cmd: {hex(data.cmd)} addr: {hex(data.addr)}')
                 
 def main(args=None):
-    rclpy.init(args=args)
+    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
 
     ximea = Ximea()
         

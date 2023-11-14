@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.signals import SignalHandlerOptions
 import sys
 import os
 
@@ -123,7 +124,7 @@ class CmdHandler(Node,SSP,LogLevel):
                 _log.get_logger().info(f'{_log.darkgrey}{log}{_log.reset}')
 
 def main(args=None):
-    rclpy.init(args=args)
+    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
 
     cmd_handler = CmdHandler()
 

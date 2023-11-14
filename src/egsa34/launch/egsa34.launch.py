@@ -46,10 +46,17 @@ def generate_launch_description():
         name = 'ximea',
         executable = 'ximea',
     )
+    
+    heart_beat = Node(
+        package = 'egsa34',
+        name = 'heart_beat',
+        executable = 'heart_beat',
+    )
 
     ld.add_action(bus_interface_0)
     ld.add_action(bus_interface_1)
     ld.add_action(cmd_handler)
+    ld.add_action(heart_beat)
     ld.add_action(ximea)
     
     return ld
