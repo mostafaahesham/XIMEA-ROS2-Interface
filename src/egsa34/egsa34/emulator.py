@@ -164,7 +164,7 @@ def main(args=None):
     sb_0.start()
     sb_1.start()
     
-    emulator.timer = emulator.create_timer(1.0, emulator.timer_callback)   
+    emulator.timer = emulator.create_timer(0.04, emulator.timer_callback)   
 
     nodeExecutor_thread.join()
     sb_0.join()

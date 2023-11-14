@@ -49,7 +49,7 @@ class CmdHandler(Node,SSP,LogLevel):
 
     def service_handler(_sh, req, res):
         
-        _sh.log('info',f'{req}')  
+        # _sh.log('info',f'{req}')  
                                              
         if req.err:
             res.cmd = _sh.rplyNACK

@@ -98,6 +98,9 @@ class BusInterface(Node,SSP,LogLevel):
             _osp.log('status_nok',f"couldn't open comm port {_osp.portUART}")
             _osp.log('err',f'{e}')
             
+            _osp.log('warn',f'SSP err_status -> {_osp.ssp_errors[str(_osp.sspERR_CODE)]} <{hex(_osp.sspERR_CODE)}>')
+            _osp.log('warn',f'SYS err_status -> {_osp.sys_errors[str(_osp.sysERR_CODE)]} <{hex(_osp.sysERR_CODE)}>')
+            
     def transmit_frame(_tf,frame):
         try:
             while _tf.SER.out_waiting:
@@ -126,14 +129,17 @@ class BusInterface(Node,SSP,LogLevel):
             # }
             # _tf.log('status_ok',f"reply -> {detailed_debug} on {_tf.SER.name}")
             
-            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
-            _tf.log('status_ok',f"reply -> {debug}")
+            # debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            # _tf.log('status_ok',f"reply -> {debug}")
             
         except SerialException as e:
             _tf.log('status_nok',"error transmitting frame")
             _tf.log('err',f'{e}')
             
             _tf.sysERR_CODE = _tf.errTX
+            
+            _tf.log('warn',f'SSP err_status -> {_tf.ssp_errors[str(_tf.sspERR_CODE)]} <{hex(_tf.sspERR_CODE)}>')
+            _tf.log('warn',f'SYS err_status -> {_tf.sys_errors[str(_tf.sysERR_CODE)]} <{hex(_tf.sysERR_CODE)}>')
     
     def recieve_frame(_rf):
         frame = b''
@@ -168,11 +174,8 @@ class BusInterface(Node,SSP,LogLevel):
             # }
             # _rf.log('status_ok',f'recieved {detailed_debug} from {_rf.SER.name}')
             
-            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
-            _rf.log('status_ok',f"recieved -> {debug}")
-            
-            _rf.log('warn',f'SSP err_status -> {_rf.ssp_errors[str(_rf.sspERR_CODE)]} <{hex(_rf.sspERR_CODE)}>')
-            _rf.log('warn',f'SYS err_status -> {_rf.sys_errors[str(_rf.sysERR_CODE)]} <{hex(_rf.sysERR_CODE)}>')
+            # debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            # _rf.log('status_ok',f"recieved -> {debug}")
             
             return True , depacketized_frame
         
@@ -182,6 +185,9 @@ class BusInterface(Node,SSP,LogLevel):
             
             _rf.sspERR_CODE = e.args[0]
             
+            _rf.log('warn',f'SSP err_status -> {_rf.ssp_errors[str(_rf.sspERR_CODE)]} <{hex(_rf.sspERR_CODE)}>')
+            _rf.log('warn',f'SYS err_status -> {_rf.sys_errors[str(_rf.sysERR_CODE)]} <{hex(_rf.sysERR_CODE)}>')
+            
             return False, {}
                 
         except SerialException as e:
@@ -190,28 +196,38 @@ class BusInterface(Node,SSP,LogLevel):
             
             _rf.sysERR_CODE = _rf.errRX
             
+            _rf.log('warn',f'SSP err_status -> {_rf.ssp_errors[str(_rf.sspERR_CODE)]} <{hex(_rf.sspERR_CODE)}>')
+            _rf.log('warn',f'SYS err_status -> {_rf.sys_errors[str(_rf.sysERR_CODE)]} <{hex(_rf.sysERR_CODE)}>')
+            
             return False, {}
             
     def standby(_sb):
-        
-        _sb.log('',"listening for commands...")
-        reception_status, cmd_frame = _sb.recieve_frame()
-        if _sb.sspERR_CODE == _sb.errDEST or _sb.sspERR_CODE == _sb.errFRAME or reception_status == False:
-            pass
-        else:
-            _sb.send_request(cmd_frame["cmd"],cmd_frame["data"])
-            while not _sb.future.done():
+        while True:
+            # _sb.log('',"listening for commands...")
+            reception_status, cmd_frame = _sb.recieve_frame()
+            if _sb.sspERR_CODE == _sb.errDEST or _sb.sspERR_CODE == _sb.errFRAME or reception_status == False:
                 pass
-            try:
-                response = _sb.future.result()
-                rply_frame = _sb.packetize(cmd_frame["src"],cmd_frame["dest"],response.cmd,response.data)
-                _sb.transmit_frame(rply_frame)
-                _sb.log('info',f'{response}')
-            except Exception as e:
-                _sb.log('status_nok',f'service call <{_sb.cli.srv_name}> failed')
-                _sb.log('err',f'{e}')
             else:
-                pass
+                try:
+                    _sb.send_request(cmd_frame["cmd"],cmd_frame["data"])
+                    while not _sb.future.done():
+                        pass
+                    try:
+                        response = _sb.future.result()
+                        rply_frame = _sb.packetize(cmd_frame["src"],cmd_frame["dest"],response.cmd,response.data)
+                        _sb.transmit_frame(rply_frame)
+                        # _sb.log('info',f'{response}')
+                    except Exception as e:
+                        _sb.log('status_nok',f'service request <{_sb.bus_client.srv_name}> failed')
+                        _sb.log('err',f'{e}')
+                    else:
+                        pass
+                except Exception as e:
+                    _sb.log('status_nok',f'service response <{_sb.bus_client.srv_name}> failed')
+                    _sb.log('err',f'{e}')
+                    
+                    _sb.log('warn',f'SSP err_status -> {_sb.ssp_errors[str(_sb.sspERR_CODE)]} <{hex(_sb.sspERR_CODE)}>')
+                    _sb.log('warn',f'SYS err_status -> {_sb.sys_errors[str(_sb.sysERR_CODE)]} <{hex(_sb.sysERR_CODE)}>')
         
 
 def main(args=None):
@@ -225,9 +241,7 @@ def main(args=None):
     nodeExecutor_thread.start()
     
     bus_interface.open_serial_port()
-    
-    while True:
-        bus_interface.standby()
+    bus_interface.standby()
         
     nodeExecutor_thread.join()
 
