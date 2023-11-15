@@ -56,7 +56,7 @@ def generate_launch_description():
     ld.add_action(bus_interface_0)
     ld.add_action(bus_interface_1)
     ld.add_action(cmd_handler)
-    ld.add_action(heart_beat)
+    # ld.add_action(heart_beat)
     ld.add_action(ximea)
     
     return ld

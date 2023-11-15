@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.signals import SignalHandlerOptions
-
 import serial
 from serial import SerialException
 import sys
@@ -44,13 +43,10 @@ class BusInterface(Node,SSP,LogLevel):
         
         _bus.cmd_service_name = _bus.get_parameter(f'{_bus.namespace}.services.cmd_srv').value
         
-        _bus.addr = addr
+        _bus.addr = addr        
         _bus.SER = None
         
-        _bus.log('info',f'subsystem <{hex(_bus.addr)}> up and running')
-        
-        _bus.log('warn',f'{_bus.portUART}')
-        
+        _bus.log('info',f'subsystem <{hex(_bus.addr)}> up and running')        
         
         _bus.bus_client = _bus.create_client(BusReply, _bus.cmd_service_name)       
         while not _bus.bus_client.wait_for_service(timeout_sec=1.0):
@@ -230,10 +226,12 @@ class BusInterface(Node,SSP,LogLevel):
                     
                     _sb.log('warn',f'SSP err_status -> {_sb.ssp_errors[str(_sb.sspERR_CODE)]} <{hex(_sb.sspERR_CODE)}>')
                     _sb.log('warn',f'SYS err_status -> {_sb.sys_errors[str(_sb.sysERR_CODE)]} <{hex(_sb.sysERR_CODE)}>')
+
+            
         
 
 def main(args=None):
-    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
+    rclpy.init(args=args)
 
     bus_interface = BusInterface(0x26)
     

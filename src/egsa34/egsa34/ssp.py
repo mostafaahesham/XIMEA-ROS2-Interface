@@ -58,6 +58,8 @@ class SSP(SSPConfig):
                             _ssp.cmdDIMG,
                             _ssp.cmdCXT
                         ]
+        
+        _ssp.syncCOUNTER = 0
             
     def calc_crc(_crc,data):
 

@@ -8,6 +8,7 @@ import os
 import time
 import random
 import threading
+import RPi.GPIO as GPIO
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
@@ -28,6 +29,13 @@ class Emulator(Node,SSP,LogLevel):
         _emu.baud_rate = 115200
         _emu.parity =  'N'
         _emu.timeout = None
+        
+        _emu.syncPIN = 26
+        _emu.STATE = False
+        
+        GPIO.cleanup()
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(_emu.syncPIN, GPIO.OUT)
         
         _emu.rand = [random.randint(0,255) for _ in range(248)]
         
@@ -134,10 +142,15 @@ class Emulator(Node,SSP,LogLevel):
             _rf.log('status_nok',"error recieving frame")
             _rf.log('err',f'{e}')
             
-    def timer_callback(_cb):
+    def command_send_callback(_cb):
         _cb.command_send(_cb.SER0,_cb.addrRPI,0x50,_cb.cmdWD,_cb.rand)
         _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdWD,_cb.rand)
         _cb.log('',"listening for reply...")
+        
+    def sync_callback(_cb):
+        _cb.STATE = _cb.STATE ^ True
+        GPIO.output(_cb.syncPIN,_cb.STATE)
+        _cb.log('warn',f'{_cb.STATE}')
         
     def standby_p0(_cb):
         while True:
@@ -148,25 +161,25 @@ class Emulator(Node,SSP,LogLevel):
             _cb.recieve_frame(_cb.SER1)           
             
 def main(args=None):
-    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
+    rclpy.init(args=args)
 
     emulator = Emulator(0x50)
+    emulator.open_serial_ports()
+    
+    # command_send_timer = emulator.create_timer(2.0, emulator.command_send_callback)
+    sync_timer = emulator.create_timer(0.5, emulator.sync_callback)
+          
+    sb_0 = threading.Thread(target=emulator.standby_p0)
+    sb_1 = threading.Thread(target=emulator.standby_p1)
     
     nodeExecutor_thread = rclpy.executors.MultiThreadedExecutor()
     nodeExecutor_thread.add_node(emulator)
     nodeExecutor_thread = threading.Thread(target=nodeExecutor_thread.spin, daemon=True)
+    
     nodeExecutor_thread.start()
-    
-    sb_0 = threading.Thread(target=emulator.standby_p0)
-    sb_1 = threading.Thread(target=emulator.standby_p1)
-    
-    emulator.open_serial_ports()
-    
     sb_0.start()
     sb_1.start()
     
-    emulator.timer = emulator.create_timer(0.04, emulator.timer_callback)   
-
     nodeExecutor_thread.join()
     sb_0.join()
     sb_1.join()

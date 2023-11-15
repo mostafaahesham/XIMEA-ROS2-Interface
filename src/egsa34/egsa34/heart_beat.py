@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.time import Time
 import RPi.GPIO as GPIO
 import time
 from rclpy.signals import SignalHandlerOptions
@@ -8,25 +9,22 @@ class HeartBeat(Node):
     def __init__(_hb):
         super().__init__('heart_beat')
         
+        _hb.PIN = 18
+        _hb.STATE = False
         GPIO.cleanup()
-        
-        _hb.pin = 17
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(_hb.pin, GPIO.OUT)
+        GPIO.setup(_hb.PIN, GPIO.OUT)
             
-    def blink(_blnk):
-        while True:
-            GPIO.output(_blnk.pin, GPIO.HIGH)
-            time.sleep(0.2)
-            GPIO.output(_blnk.pin, GPIO.LOW)
-            time.sleep(1)
+    def timer_callback(_cb):
+        _cb.STATE = _cb.STATE ^ True
+        GPIO.output(_cb.PIN,_cb.STATE)
 
 def main(args=None):
-    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
+    rclpy.init(args=args)
 
     heart_beat = HeartBeat()
     
-    heart_beat.blink()
+    timer = heart_beat.create_timer(1.0, heart_beat.timer_callback)
     
     rclpy.spin(heart_beat)
 

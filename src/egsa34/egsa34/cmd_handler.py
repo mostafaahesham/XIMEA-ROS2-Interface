@@ -3,6 +3,8 @@ from rclpy.node import Node
 from rclpy.signals import SignalHandlerOptions
 import sys
 import os
+import RPi.GPIO as GPIO
+import threading
 
 from pl_interface.srv import BusReply
 from pl_interface.msg import PldCmd
@@ -20,19 +22,11 @@ class CmdHandler(Node,SSP,LogLevel):
         SSP.__init__(_cmd)
         LogLevel.__init__(_cmd)
         
-        # _cmd._allow_undeclared_parameters = True
+        _cmd.syncPIN = 17
+        _cmd.STATE = GPIO.LOW
+        GPIO.setmode(GPIO.BCM)           
+        GPIO.setup(_cmd.syncPIN, GPIO.IN)
         
-        # _cmd.namespace = _cmd.get_namespace()
-        # _cmd.ns = _cmd.namespace
-        
-        # _cmd.declare_parameters(
-        # namespace=_cmd.namespace,
-        # parameters=[
-        #     ('services.cmd_srv',"")
-        # ])
-        
-        # _cmd.cmd_service_name = _cmd.get_parameter('services.cmd_srv').value
-        # _cmd.log('warn',f'{_cmd.cmd_service_name}') 
         _cmd.cmd_handler_service = _cmd.create_service(BusReply, 'cmd_srv', _cmd.service_handler)
         _cmd.publisher = _cmd.create_publisher(PldCmd,'/payloads',10)
         
@@ -103,6 +97,18 @@ class CmdHandler(Node,SSP,LogLevel):
     def cxt_callback(_cb,req,res):
         pass
     
+    def sync_increment(_cb):
+        current_state = GPIO.LOW
+        while True:
+            new_state = GPIO.input(_cb.syncPIN)
+            if current_state == GPIO.LOW and new_state == GPIO.HIGH:
+                current_state = new_state
+                _cb.syncCOUNTER += 1
+                _cb.log('warn',f'sync counter -> {_cb.syncCOUNTER}s')
+
+            elif current_state == GPIO.HIGH and new_state == GPIO.LOW:
+                current_state = new_state
+    
     def default_callback(_cb, req, res):
         _cb.log('error', f'Unknown command: {req.cmd}')
     
@@ -124,11 +130,14 @@ class CmdHandler(Node,SSP,LogLevel):
                 _log.get_logger().info(f'{_log.darkgrey}{log}{_log.reset}')
 
 def main(args=None):
-    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
+    rclpy.init(args=args)
 
     cmd_handler = CmdHandler()
+    sync_thread = threading.Thread(target=cmd_handler.sync_increment)
+    sync_thread.start()
 
     rclpy.spin(cmd_handler)
+    sync_thread.join()
 
     rclpy.shutdown()
 
