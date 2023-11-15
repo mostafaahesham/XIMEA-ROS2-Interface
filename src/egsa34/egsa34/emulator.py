@@ -143,14 +143,14 @@ class Emulator(Node,SSP,LogLevel):
             _rf.log('err',f'{e}')
             
     def command_send_callback(_cb):
-        _cb.command_send(_cb.SER0,_cb.addrRPI,0x50,_cb.cmdWD,_cb.rand)
-        _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdWD,_cb.rand)
+        # _cb.command_send(_cb.SER0,_cb.addrRPI,0x50,_cb.cmdWD,_cb.rand)
+        _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdSSC,[0xff]*8)
         _cb.log('',"listening for reply...")
         
     def sync_callback(_cb):
         _cb.STATE = _cb.STATE ^ True
         GPIO.output(_cb.syncPIN,_cb.STATE)
-        _cb.log('warn',f'{_cb.STATE}')
+        # _cb.log('warn',f'{_cb.STATE}')
         
     def standby_p0(_cb):
         while True:
@@ -161,12 +161,12 @@ class Emulator(Node,SSP,LogLevel):
             _cb.recieve_frame(_cb.SER1)           
             
 def main(args=None):
-    rclpy.init(args=args)
+    rclpy.init(args=args,signal_handler_options=SignalHandlerOptions.NO)
 
     emulator = Emulator(0x50)
     emulator.open_serial_ports()
     
-    # command_send_timer = emulator.create_timer(2.0, emulator.command_send_callback)
+    command_send_timer = emulator.create_timer(5.0, emulator.command_send_callback)
     sync_timer = emulator.create_timer(0.5, emulator.sync_callback)
           
     sb_0 = threading.Thread(target=emulator.standby_p0)

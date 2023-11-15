@@ -35,6 +35,7 @@ class CmdHandler(Node,SSP,LogLevel):
         _cmd.callbacks = {
             str(_cmd.cmdPING):_cmd.ping_callback,
             str(_cmd.cmdWD):_cmd.wd_callback,
+            str(_cmd.cmdSSC):_cmd.ssc_callback,
             str(_cmd.cmdRCS):_cmd.rcs_callback,
             str(_cmd.cmdGIMG):_cmd.gimg_callback,
             str(_cmd.cmdTIMG):_cmd.timg_callback,
@@ -66,6 +67,15 @@ class CmdHandler(Node,SSP,LogLevel):
         return res
     
     def wd_callback(_cb,req,res):
+        res.cmd = _cb.rplyACK
+        res.data_len = 1
+        res.data = [req.cmd]
+        
+        return res
+    
+    def ssc_callback(_cb,req,res):  
+        _cb.syncCOUNTER = int.from_bytes(bytearray(req.data), byteorder="big")
+        
         res.cmd = _cb.rplyACK
         res.data_len = 1
         res.data = [req.cmd]

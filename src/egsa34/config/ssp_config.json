@@ -50,7 +50,8 @@
   "commands": {
     "generic_commands": {
       "PING":0,
-      "WD":7
+      "WD":7,
+      "SSC":24
     },
     "master_commands": {},
     "eps_commands": {},

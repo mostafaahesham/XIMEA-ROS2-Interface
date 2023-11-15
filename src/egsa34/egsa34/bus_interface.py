@@ -127,8 +127,8 @@ class BusInterface(Node,SSP,LogLevel):
             # }
             # _tf.log('status_ok',f"reply -> {detailed_debug} on {_tf.SER.name}")
             
-            # debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
-            # _tf.log('status_ok',f"reply -> {debug}")
+            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            _tf.log('status_ok',f"reply -> {debug}")
             
         except SerialException as e:
             _tf.log('status_nok',"error transmitting frame")
@@ -172,8 +172,8 @@ class BusInterface(Node,SSP,LogLevel):
             # }
             # _rf.log('status_ok',f'recieved {detailed_debug} from {_rf.SER.name}')
             
-            # debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
-            # _rf.log('status_ok',f"recieved -> {debug}")
+            debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
+            _rf.log('status_ok',f"recieved -> {debug}")
             
             return True , depacketized_frame
         
@@ -201,7 +201,7 @@ class BusInterface(Node,SSP,LogLevel):
             
     def standby(_sb):
         while True:
-            # _sb.log('',"listening for commands...")
+            _sb.log('',"listening for commands...")
             reception_status, cmd_frame = _sb.recieve_frame()
             if _sb.sspERR_CODE == _sb.errDEST or _sb.sspERR_CODE == _sb.errFRAME or reception_status == False:
                 pass
@@ -214,7 +214,7 @@ class BusInterface(Node,SSP,LogLevel):
                         response = _sb.future.result()
                         rply_frame = _sb.packetize(cmd_frame["src"],cmd_frame["dest"],response.cmd,response.data)
                         _sb.transmit_frame(rply_frame)
-                        # _sb.log('info',f'{response}')
+                        _sb.log('info',f'{response}')
                     except Exception as e:
                         _sb.log('status_nok',f'service request <{_sb.bus_client.srv_name}> failed')
                         _sb.log('err',f'{e}')

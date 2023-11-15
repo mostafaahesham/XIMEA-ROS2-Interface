@@ -63,6 +63,7 @@ class SSPConfig:
         # Generic Commands
         _cfg.cmdPING = ssp_config["commands"]["generic_commands"]["PING"]
         _cfg.cmdWD = ssp_config["commands"]["generic_commands"]["WD"]
+        _cfg.cmdSSC = ssp_config["commands"]["generic_commands"]["SSC"]
         
         # Payload Commands
         _cfg.cmdRCS = ssp_config["commands"]["payload_commands"]["RCS"]
