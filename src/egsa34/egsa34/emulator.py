@@ -144,7 +144,7 @@ class Emulator(Node,SSP,LogLevel):
             
     def command_send_callback(_cb):
         # _cb.command_send(_cb.SER0,_cb.addrRPI,0x50,_cb.cmdWD,_cb.rand)
-        _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdSSC,[0xff]*8)
+        _cb.command_send(_cb.SER1,_cb.addrRPI,0x01,_cb.cmdGSC,[])
         _cb.log('',"listening for reply...")
         
     def sync_callback(_cb):

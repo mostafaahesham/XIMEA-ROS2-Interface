@@ -39,7 +39,8 @@ class SSP(SSPConfig):
             str(_ssp.cmdPING):0,
             str(_ssp.cmdGIMG):1,
             str(_ssp.cmdWD):248,
-            str(_ssp.cmdSSC):8,
+            str(_ssp.cmdGSC):0,
+            str(_ssp.cmdSSC):8
         }
         
         _ssp.FRAME =   [_ssp.FLAG,
@@ -53,6 +54,7 @@ class SSP(SSPConfig):
         _ssp.allowed_CMDS = [
                             _ssp.cmdPING,
                             _ssp.cmdWD,
+                            _ssp.cmdGSC,
                             _ssp.cmdSSC,
                             _ssp.cmdRCS,
                             _ssp.cmdGIMG,

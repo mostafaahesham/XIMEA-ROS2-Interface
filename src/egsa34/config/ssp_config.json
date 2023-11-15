@@ -51,6 +51,7 @@
     "generic_commands": {
       "PING":0,
       "WD":7,
+      "GSC":23,
       "SSC":24
     },
     "master_commands": {},

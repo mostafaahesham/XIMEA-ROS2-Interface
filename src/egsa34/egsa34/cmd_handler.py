@@ -35,6 +35,7 @@ class CmdHandler(Node,SSP,LogLevel):
         _cmd.callbacks = {
             str(_cmd.cmdPING):_cmd.ping_callback,
             str(_cmd.cmdWD):_cmd.wd_callback,
+            str(_cmd.cmdGSC):_cmd.gsc_callback,
             str(_cmd.cmdSSC):_cmd.ssc_callback,
             str(_cmd.cmdRCS):_cmd.rcs_callback,
             str(_cmd.cmdGIMG):_cmd.gimg_callback,
@@ -45,7 +46,7 @@ class CmdHandler(Node,SSP,LogLevel):
 
     def service_handler(_sh, req, res):
         
-        # _sh.log('info',f'{req}')  
+        _sh.log('info',f'{req}')  
                                              
         if req.err:
             res.cmd = _sh.rplyNACK
@@ -70,6 +71,13 @@ class CmdHandler(Node,SSP,LogLevel):
         res.cmd = _cb.rplyACK
         res.data_len = 1
         res.data = [req.cmd]
+        
+        return res
+    
+    def gsc_callback(_cb,req,res):  
+        res.cmd = req.cmd | 1 << 6
+        res.data = _cb.syncCOUNTER.to_bytes(8,'big')
+        res.data_len = len(res.data)
         
         return res
     
