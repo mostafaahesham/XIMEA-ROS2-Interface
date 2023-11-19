@@ -84,5 +84,13 @@
     "port1_error":8,
     "transmit_error":9,
     "recieve_error":10
+  },
+  "sys_errors":{
+    "frame_err":5,
+    "dest_err":6,
+    "port0_error":7,
+    "port1_error":8,
+    "transmit_error":9,
+    "recieve_error":10
   }
 }

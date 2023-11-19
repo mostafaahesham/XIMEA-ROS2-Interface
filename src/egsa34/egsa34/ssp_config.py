@@ -88,3 +88,5 @@ class SSPConfig:
         _cfg.errPORT1 = ssp_config["errors"]["port1_error"]
         _cfg.errTX = ssp_config["errors"]["transmit_error"]
         _cfg.errRX = ssp_config["errors"]["recieve_error"]
+        
+        _cfg.sysERRs = list(ssp_config["sys_errors"].values())

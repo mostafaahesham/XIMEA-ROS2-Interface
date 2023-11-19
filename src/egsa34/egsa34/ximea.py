@@ -31,9 +31,9 @@ class Ximea(Node,LogLevel):
                 _log.get_logger().info(f'{_log.red}{log}{_log.reset}')
             case 'warn':
                 _log.get_logger().info(f'{_log.yellow}{log}{_log.reset}')
-            case 'status_nok':
+            case 'nok':
                 _log.get_logger().info(f'{_log.pink}{log}{_log.reset}')  
-            case 'status_ok':
+            case 'ok':
                 _log.get_logger().info(f'{_log.cyan}{log}{_log.reset}')
             case 'info':
                 _log.get_logger().info(f'{_log.green}{log}{_log.reset}')

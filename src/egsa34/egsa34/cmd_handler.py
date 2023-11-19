@@ -47,7 +47,7 @@ class CmdHandler(Node,SSP,LogLevel):
     def service_handler(_sh, req, res):
         
         # _sh.log('info',f'{req}')  
-                                             
+                                        
         if req.err:
             res.cmd = _sh.rplyNACK
             res.data = [req.cmd,req.err]
@@ -93,18 +93,8 @@ class CmdHandler(Node,SSP,LogLevel):
     def rcs_callback(_cb,req,res):
         pass
     
-    def gimg_callback(_cb,req,res):
-        
-        _cb.cmd.cmd = req.cmd
-        _cb.cmd.addr = req.data[0]
-        
-        _cb.publisher.publish(_cb.cmd)
-        
-        res.cmd = _cb.rplyACK
-        res.data_len = 1
-        res.data = [req.cmd]
-        
-        return res
+    def gimg_callback(_cb,req,res):        
+        pass
     
     def timg_callback(_cb,req,res):
         pass
@@ -138,9 +128,9 @@ class CmdHandler(Node,SSP,LogLevel):
                 _log.get_logger().info(f'{_log.red}{log}{_log.reset}')
             case 'warn':
                 _log.get_logger().info(f'{_log.yellow}{log}{_log.reset}')
-            case 'status_nok':
+            case 'nok':
                 _log.get_logger().info(f'{_log.pink}{log}{_log.reset}')  
-            case 'status_ok':
+            case 'ok':
                 _log.get_logger().info(f'{_log.cyan}{log}{_log.reset}')
             case 'info':
                 _log.get_logger().info(f'{_log.green}{log}{_log.reset}')

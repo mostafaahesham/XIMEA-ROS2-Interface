@@ -47,9 +47,9 @@ class Emulator(Node,SSP,LogLevel):
                 _log.get_logger().info(f'{_log.red}{log}{_log.reset}')
             case 'warn':
                 _log.get_logger().info(f'{_log.yellow}{log}{_log.reset}')
-            case 'status_nok':
+            case 'nok':
                 _log.get_logger().info(f'{_log.pink}{log}{_log.reset}')  
-            case 'status_ok':
+            case 'ok':
                 _log.get_logger().info(f'{_log.cyan}{log}{_log.reset}')
             case 'info':
                 _log.get_logger().info(f'{_log.green}{log}{_log.reset}')
@@ -59,17 +59,17 @@ class Emulator(Node,SSP,LogLevel):
     def open_serial_ports(_osp):
         try:
             _osp.SER0 = serial.Serial(port=_osp.uart_port_0, baudrate=_osp.baud_rate, parity=_osp.parity, timeout=_osp.timeout)
-            _osp.log('status_ok',f'successfully opened comm port {_osp.SER0.name}')
+            _osp.log('ok',f'successfully opened comm port {_osp.SER0.name}')
         except SerialException as e:
             _osp.sysERR_CODE = _osp.errPORT0
-            _osp.log('status_nok',f"couldn't open comm port {_osp.uart_port_0}")
+            _osp.log('nok',f"couldn't open comm port {_osp.uart_port_0}")
             _osp.log('err',f'{e}')
         try:
             _osp.SER1 = serial.Serial(port=_osp.uart_port_1, baudrate=_osp.baud_rate, parity=_osp.parity, timeout=_osp.timeout)
-            _osp.log('status_ok',f'successfully opened comm port {_osp.SER1.name}')
+            _osp.log('ok',f'successfully opened comm port {_osp.SER1.name}')
         except SerialException as e:
             _osp.sysERR_CODE = _osp.errPORT1
-            _osp.log('status_nok',f"couldn't open comm port {_osp.uart_port_1}")
+            _osp.log('nok',f"couldn't open comm port {_osp.uart_port_1}")
             _osp.log('err',f'{e}')
     
     def command_send(_cs,ser,dest,src,cmd,data):
@@ -100,13 +100,13 @@ class Emulator(Node,SSP,LogLevel):
             #     str(value)
             #     for key, value in sent.items()
             # }
-            # _cs.log('status_ok',f"cmd -> {detailed_debug} on {ser.name}")
+            # _cs.log('ok',f"cmd -> {detailed_debug} on {ser.name}")
             
             debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
-            _cs.log('status_ok',f"cmd -> {debug}")
+            _cs.log('ok',f"cmd -> {debug}")
             
         except Exception as e:
-            _cs.log('status_nok',"frame not sent")
+            _cs.log('nok',"frame not sent")
             _cs.log('err',f'{e}')
             
     def recieve_frame(_rf,ser):
@@ -131,15 +131,15 @@ class Emulator(Node,SSP,LogLevel):
             #     str(value)
             #     for key, value in depacketized_frame.items()
             # }
-            # _rf.log('status_ok',f'recieved {detailed_debug} from {ser.name}')
+            # _rf.log('ok',f'recieved {detailed_debug} from {ser.name}')
             
             debug = ' '.join(['{:02X}'.format(byte) for byte in frame])
-            _rf.log('status_ok',f"recieved -> {debug} from {ser.name}")
+            _rf.log('ok',f"recieved -> {debug} from {ser.name}")
             
             return depacketized_frame
         
         except Exception as e:
-            _rf.log('status_nok',"error recieving frame")
+            _rf.log('nok',"error recieving frame")
             _rf.log('err',f'{e}')
             
     def command_send_callback(_cb):
