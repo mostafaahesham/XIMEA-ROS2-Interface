@@ -55,13 +55,9 @@ class BusInterface(Node,SSP,LogLevel):
         _bus.req = BusReply.Request()
         
     def send_request(_sr,cmd,data):
-        if _sr.sspERR_CODE:            
+        if _sr.errCODE:            
             _sr.req.cmd = cmd
-            _sr.req.err = _sr.sspERR_CODE
-            
-        if _sr.sysERR_CODE:
-            _sr.req.cmd = cmd
-            _sr.req.err = _sr.errOTHER
+            _sr.req.err = _sr.errCODE
             
         else:
             _sr.req.cmd = cmd
@@ -91,13 +87,12 @@ class BusInterface(Node,SSP,LogLevel):
             _osp.log('status_ok',f'successfully opened comm port {_osp.SER.name}')
         except SerialException as e:
             
-            _osp.sysERR_CODE = list(_osp.sys_errors.keys())[list(_osp.sys_errors.values()).index(f'SYS_PORT{_osp.ns[-1]}_ERR')]
+            _osp.errCODE = list(_osp.errors.keys())[list(_osp.errors.values()).index(f'PORT{_osp.ns[-1]}_ERR')]
 
             _osp.log('status_nok',f"couldn't open comm port {_osp.portUART}")
             _osp.log('err',f'{e}')
             
-            _osp.log('warn',f'SSP err_status -> {_osp.ssp_errors[str(_osp.sspERR_CODE)]} <{hex(_osp.sspERR_CODE)}>')
-            _osp.log('warn',f'SYS err_status -> {_osp.sys_errors[str(_osp.sysERR_CODE)]} <{hex(_osp.sysERR_CODE)}>')
+            _osp.log('warn',f'err_status -> {_osp.errors[str(_osp.errCODE)]} <{hex(_osp.errCODE)}>')
             
     def transmit_frame(_tf,frame):
         try:
@@ -134,10 +129,9 @@ class BusInterface(Node,SSP,LogLevel):
             _tf.log('status_nok',"error transmitting frame")
             _tf.log('err',f'{e}')
             
-            _tf.sysERR_CODE = _tf.errTX
+            _tf.errCODE = _tf.errTX
             
-            _tf.log('warn',f'SSP err_status -> {_tf.ssp_errors[str(_tf.sspERR_CODE)]} <{hex(_tf.sspERR_CODE)}>')
-            _tf.log('warn',f'SYS err_status -> {_tf.sys_errors[str(_tf.sysERR_CODE)]} <{hex(_tf.sysERR_CODE)}>')
+            _tf.log('warn',f'err_status -> {_tf.errors[str(_tf.errCODE)]} <{hex(_tf.errCODE)}>')
     
     def recieve_frame(_rf):
         frame = b''
@@ -152,14 +146,12 @@ class BusInterface(Node,SSP,LogLevel):
                 assert temp[_rf.idxDEST_ADDR] == _rf.addr, _rf.errDEST
                 assert temp[_rf.idxCMD_ID] in _rf.allowed_CMDS, _rf.errCMD
                 
-                
                 data_length = temp[-1]
                 frame += temp
                 temp = _rf.SER.read(data_length + 3)
                 frame += temp
                 
-                _rf.sspERR_CODE = 0
-                _rf.sysERR_CODE = 0
+                _rf.errCODE = 0
             
             depacketized_frame = _rf.depacketize(frame)
             
@@ -178,13 +170,13 @@ class BusInterface(Node,SSP,LogLevel):
             return True , depacketized_frame
         
         except AssertionError as e:
+            _rf.SER.reset_input_buffer()
             _rf.log('status_nok',"ssp frame error")
             _rf.log('err',f'{e}')
             
-            _rf.sspERR_CODE = e.args[0]
+            _rf.errCODE = e.args[0]
             
-            _rf.log('warn',f'SSP err_status -> {_rf.ssp_errors[str(_rf.sspERR_CODE)]} <{hex(_rf.sspERR_CODE)}>')
-            _rf.log('warn',f'SYS err_status -> {_rf.sys_errors[str(_rf.sysERR_CODE)]} <{hex(_rf.sysERR_CODE)}>')
+            _rf.log('warn',f'err_status -> {_rf.errors[str(_rf.errCODE)]} <{hex(_rf.errCODE)}>')
             
             return False, {}
                 
@@ -192,18 +184,16 @@ class BusInterface(Node,SSP,LogLevel):
             _rf.log('status_nok',"error recieving frame")
             _rf.log('err',f'{e}')
             
-            _rf.sysERR_CODE = _rf.errRX
+            _rf.errCODE = _rf.errRX
             
-            _rf.log('warn',f'SSP err_status -> {_rf.ssp_errors[str(_rf.sspERR_CODE)]} <{hex(_rf.sspERR_CODE)}>')
-            _rf.log('warn',f'SYS err_status -> {_rf.sys_errors[str(_rf.sysERR_CODE)]} <{hex(_rf.sysERR_CODE)}>')
-            
+            _rf.log('warn',f'SSP err_status -> {_rf.errors[str(_rf.errCODE)]} <{hex(_rf.errCODE)}>')            
             return False, {}
             
     def standby(_sb):
         while True:
-            _sb.log('',"listening for commands...")
+            # _sb.log('',"listening for commands...")
             reception_status, cmd_frame = _sb.recieve_frame()
-            if _sb.sspERR_CODE == _sb.errDEST or _sb.sspERR_CODE == _sb.errFRAME or reception_status == False:
+            if _sb.errCODE == _sb.errDEST or _sb.errCODE == _sb.errFRAME or reception_status == False:
                 pass
             else:
                 try:
@@ -214,7 +204,7 @@ class BusInterface(Node,SSP,LogLevel):
                         response = _sb.future.result()
                         rply_frame = _sb.packetize(cmd_frame["src"],cmd_frame["dest"],response.cmd,response.data)
                         _sb.transmit_frame(rply_frame)
-                        _sb.log('info',f'{response}')
+                        # _sb.log('info',f'{response}')
                     except Exception as e:
                         _sb.log('status_nok',f'service request <{_sb.bus_client.srv_name}> failed')
                         _sb.log('err',f'{e}')
@@ -224,12 +214,8 @@ class BusInterface(Node,SSP,LogLevel):
                     _sb.log('status_nok',f'service response <{_sb.bus_client.srv_name}> failed')
                     _sb.log('err',f'{e}')
                     
-                    _sb.log('warn',f'SSP err_status -> {_sb.ssp_errors[str(_sb.sspERR_CODE)]} <{hex(_sb.sspERR_CODE)}>')
-                    _sb.log('warn',f'SYS err_status -> {_sb.sys_errors[str(_sb.sysERR_CODE)]} <{hex(_sb.sysERR_CODE)}>')
-
-            
+                    _sb.log('warn',f'err_status -> {_sb.errors[str(_sb.errCODE)]} <{hex(_sb.errCODE)}>')          
         
-
 def main(args=None):
     rclpy.init(args=args)
 

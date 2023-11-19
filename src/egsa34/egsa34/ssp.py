@@ -12,25 +12,20 @@ class SSP(SSPConfig):
     def __init__(_ssp):
         SSPConfig.__init__(_ssp)
         
-        _ssp.sspERR_CODE = 0
-        _ssp.sysERR_CODE = 0
+        _ssp.errCODE = 0
         
-        _ssp.ssp_errors = {
-            "0":"SSP_NO_ERR",
-            "1":"SSP_CRC_ERR",
-            "2":"SSP_PARAMS_ERR",
-            "3":"SSP_CMD_ERR",
-            "4":"SSP_OTHER_ERR"
-        }
-        
-        _ssp.sys_errors = {
-            "0":"SYS_NO_ERR",
-            "255":"SYS_FRAME_ERR",
-            "254":"SYS_DEST_ERR",
-            "253":"SYS_PORT0_ERR",
-            "252":"SYS_PORT1_ERR",
-            "251":"SYS_TX_ERR",
-            "250":"SYS_RX_ERR"
+        _ssp.errors = {
+            "0":"NO_ERR",
+            "1":"CRC_ERR",
+            "2":"PARAMS_ERR",
+            "3":"CMD_ERR",
+            "4":"OTHER_ERR",
+            "5":"FRAME_ERR",
+            "6":"DEST_ERR",
+            "7":"PORT0_ERR",
+            "8":"PORT1_ERR",
+            "9":"TX_ERR",
+            "10":"RX_ERR"
         }
         
         # dict for checking datalengths' of associated commands
@@ -80,13 +75,13 @@ class SSP(SSPConfig):
                 assert frame[_chk.idxDATA_LEN] == _chk.params_check[str(frame[_chk.idxCMD_ID])], _chk.errPARAMS
             else:
                 pass
-            _chk.sspERR_CODE = 0
+            _chk.errCODE = 0
             
-            return _chk.sspERR_CODE
+            return _chk.errCODE
             
         except AssertionError as e:
-            _chk.sspERR_CODE = e.args[0]
-            return _chk.sspERR_CODE
+            _chk.errCODE = e.args[0]
+            return _chk.errCODE
 
     def packetize(_pkt,dest,src,cmd,data):
         
@@ -113,8 +108,7 @@ class SSP(SSPConfig):
     
         if _dpkt.analyze_frame(frame,type) != _dpkt.errNONE:
                 return {
-                "ssp_status":_dpkt.ssp_errors[str(_dpkt.sspERR_CODE)],
-                "sys_status":_dpkt.sys_errors[str(_dpkt.sysERR_CODE)],
+                "err_status":_dpkt.errors[str(_dpkt.errCODE)],
             }
         else:
             data_len = frame[_dpkt.idxDATA_LEN]

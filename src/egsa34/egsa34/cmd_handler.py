@@ -46,7 +46,7 @@ class CmdHandler(Node,SSP,LogLevel):
 
     def service_handler(_sh, req, res):
         
-        _sh.log('info',f'{req}')  
+        # _sh.log('info',f'{req}')  
                                              
         if req.err:
             res.cmd = _sh.rplyNACK
@@ -122,7 +122,7 @@ class CmdHandler(Node,SSP,LogLevel):
             if current_state == GPIO.LOW and new_state == GPIO.HIGH:
                 current_state = new_state
                 _cb.syncCOUNTER += 1
-                _cb.log('warn',f'sync counter -> {_cb.syncCOUNTER}s')
+                _cb.log('',f'{_cb.bold}sync counter -> {_cb.syncCOUNTER}s')
 
             elif current_state == GPIO.HIGH and new_state == GPIO.LOW:
                 current_state = new_state

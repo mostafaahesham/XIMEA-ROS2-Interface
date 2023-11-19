@@ -71,22 +71,18 @@
       "NACK":3
     }
   },
-  "ssp_errors":
+  "errors":
   {
     "no_err":0,
     "crc_err":1,
     "params_err":2,
     "cmd_err":3,
-    "other_err":4
-  },
-  "sys_errors":
-  {
-    "no_err":0,
-    "frame_err":255,
-    "dest_err":254,
-    "port0_error":253,
-    "port1_error":252,
-    "transmit_error":251,
-    "recieve_error":250
+    "other_err":4,
+    "frame_err":5,
+    "dest_err":6,
+    "port0_error":7,
+    "port1_error":8,
+    "transmit_error":9,
+    "recieve_error":10
   }
 }
