@@ -63,6 +63,8 @@ class SSPConfig:
         # Generic Commands
         _cfg.cmdPING = ssp_config["commands"]["generic_commands"]["PING"]
         _cfg.cmdWD = ssp_config["commands"]["generic_commands"]["WD"]
+        _cfg.cmdSM = ssp_config["commands"]["generic_commands"]["SM"]
+        _cfg.cmdGM = ssp_config["commands"]["generic_commands"]["GM"]
         _cfg.cmdGSC = ssp_config["commands"]["generic_commands"]["GSC"]
         _cfg.cmdSSC = ssp_config["commands"]["generic_commands"]["SSC"]
         
@@ -73,8 +75,20 @@ class SSPConfig:
         _cfg.cmdDIMG = ssp_config["commands"]["payload_commands"]["DIMG"]
         _cfg.cmdCXT = ssp_config["commands"]["payload_commands"]["CXT"]
         
+        # Replies
         _cfg.rplyACK = ssp_config["replies"]["generic_replies"]["ACK"]
         _cfg.rplyNACK = ssp_config["replies"]["generic_replies"]["NACK"]
+        
+        # SAT Modes
+        _cfg.modeINIT = ssp_config["modes"]["INIT"]
+        _cfg.modeDTMBL = ssp_config["modes"]["DTMBL"]
+        _cfg.modeNORM = ssp_config["modes"]["NORM"]
+        _cfg.modeCOMM = ssp_config["modes"]["COMM"]
+        _cfg.modePL = ssp_config["modes"]["PL"]
+        _cfg.modeDWNLD = ssp_config["modes"]["DWNLD"]
+        _cfg.modeSAFE = ssp_config["modes"]["SAFE"]
+        _cfg.modeEMRGNC = ssp_config["modes"]["EMRGNC"]
+        _cfg.modeMMCST = ssp_config["modes"]["MMCST"]
         
         # Errors (errCODE)
         _cfg.errNONE = ssp_config["errors"]["no_err"]
@@ -89,4 +103,5 @@ class SSPConfig:
         _cfg.errTX = ssp_config["errors"]["transmit_error"]
         _cfg.errRX = ssp_config["errors"]["recieve_error"]
         
+        _cfg.satMODEs = list(ssp_config["modes"].values())
         _cfg.sysERRs = list(ssp_config["sys_errors"].values())

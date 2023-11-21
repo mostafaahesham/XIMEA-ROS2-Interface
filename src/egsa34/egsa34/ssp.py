@@ -32,10 +32,12 @@ class SSP(SSPConfig):
         # key: cmd_id, value: data_length
         _ssp.params_check = {
             str(_ssp.cmdPING):0,
-            str(_ssp.cmdGIMG):1,
             str(_ssp.cmdWD):248,
+            str(_ssp.cmdSM):1,
+            str(_ssp.cmdGM):0,
             str(_ssp.cmdGSC):0,
-            str(_ssp.cmdSSC):8
+            str(_ssp.cmdSSC):8,
+            str(_ssp.cmdGIMG):1
         }
         
         _ssp.FRAME =   [_ssp.FLAG,
@@ -49,6 +51,8 @@ class SSP(SSPConfig):
         _ssp.allowed_CMDS = [
                             _ssp.cmdPING,
                             _ssp.cmdWD,
+                            _ssp.cmdSM,
+                            _ssp.cmdGM,
                             _ssp.cmdGSC,
                             _ssp.cmdSSC,
                             _ssp.cmdRCS,
@@ -59,6 +63,7 @@ class SSP(SSPConfig):
                         ]
         
         _ssp.syncCOUNTER = 0
+        _ssp.satMODE = 0
             
     def calc_crc(_crc,data):
 

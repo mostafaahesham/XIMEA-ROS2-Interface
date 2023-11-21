@@ -51,6 +51,8 @@
     "generic_commands": {
       "PING":0,
       "WD":7,
+      "SM":21,
+      "GM":22,
       "GSC":23,
       "SSC":24
     },
@@ -70,6 +72,17 @@
       "ACK":2,
       "NACK":3
     }
+  },
+  "modes":{
+    "INIT":1,
+    "DTMBL":2,
+    "NORM":3,
+    "COMM":4,
+    "PL":5,
+    "DWNLD":6,
+    "SAFE":7,
+    "EMRGNC":8,
+    "MMCST":9
   },
   "errors":
   {

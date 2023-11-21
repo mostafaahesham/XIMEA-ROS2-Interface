@@ -35,6 +35,8 @@ class CmdHandler(Node,SSP,LogLevel):
         _cmd.callbacks = {
             str(_cmd.cmdPING):_cmd.ping_callback,
             str(_cmd.cmdWD):_cmd.wd_callback,
+            str(_cmd.cmdSM):_cmd.sm_callback,
+            str(_cmd.cmdGM):_cmd.gm_callback,
             str(_cmd.cmdGSC):_cmd.gsc_callback,
             str(_cmd.cmdSSC):_cmd.ssc_callback,
             str(_cmd.cmdRCS):_cmd.rcs_callback,
@@ -72,6 +74,31 @@ class CmdHandler(Node,SSP,LogLevel):
         res.cmd = _cb.rplyACK
         res.data_len = 1
         res.data = [req.cmd]
+        
+        return res
+    
+    def sm_callback(_cb,req,res):
+        if req.data[0] not in _cb.satMODEs:
+            
+            res.cmd = _cb.rplyNACK
+            res.data = [req.cmd,_cb.errPARAMS]
+            res.data_len = len(res.data)
+            res.err = _cb.errPARAMS
+            
+            return res
+        else:
+            _cb.satMODE = req.data[0]
+            
+            res.cmd = _cb.rplyACK
+            res.data_len = 1
+            res.data = [req.cmd]
+            
+            return res
+    
+    def gm_callback(_cb,req,res):
+        res.cmd = req.cmd | 1 << 6
+        res.data_len = 1
+        res.data = [_cb.satMODE]
         
         return res
     
