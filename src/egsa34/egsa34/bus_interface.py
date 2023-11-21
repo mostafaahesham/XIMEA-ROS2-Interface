@@ -145,7 +145,6 @@ class BusInterface(Node,SSP,LogLevel):
                 
                 assert temp[_rf.idxSTART_FLAG] == _rf.FLAG, _rf.errFRAME
                 assert temp[_rf.idxDEST_ADDR] == _rf.addr, _rf.errDEST
-                assert temp[_rf.idxCMD_ID] in _rf.allowed_CMDS, _rf.errCMD
                 
                 data_length = temp[-1]
                 frame += temp

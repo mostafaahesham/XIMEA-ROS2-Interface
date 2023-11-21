@@ -71,6 +71,7 @@ class SSP(SSPConfig):
         
             assert frame[_chk.idxSTART_FLAG] == 0xC0 and frame[_chk.idxEND_FLAG] == 0xC0, _chk.errFRAME
             assert frame[_chk.idxCRC_0] == crc_0 and frame[_chk.idxCRC_1] == crc_1, _chk.errCRC
+            assert frame[_chk.idxCMD_ID] in _chk.allowed_CMDS, _chk.errCMD
             assert frame[_chk.idxDATA_LEN] == _chk.params_check[str(frame[_chk.idxCMD_ID])], _chk.errPARAMS
             
             _chk.errCODE = 0

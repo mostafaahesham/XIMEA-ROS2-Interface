@@ -53,6 +53,7 @@ class CmdHandler(Node,SSP,LogLevel):
             res.data = [req.cmd,req.err]
             res.data_len = len(res.data)
             res.err = req.err
+            # _sh.log('warn',f'err_status -> {_sh.errors[str(req.err)]} <{hex(req.err)}>')
             
             return res
         
