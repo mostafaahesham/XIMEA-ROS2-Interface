@@ -5,9 +5,9 @@ import RPi.GPIO as GPIO
 import time
 from rclpy.signals import SignalHandlerOptions
 
-class HeartBeat(Node):
+class SyncEmulator(Node):
     def __init__(_hb):
-        super().__init__('heart_beat')
+        super().__init__('sync_emulator')
         
         _hb.ledPIN = 18
         _hb.syncPIN = 26
@@ -26,11 +26,11 @@ class HeartBeat(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    heart_beat = HeartBeat()
+    sync_emulator = SyncEmulator()
     
-    timer = heart_beat.create_timer(0.5, heart_beat.timer_callback)
+    timer = sync_emulator.create_timer(0.5, sync_emulator.timer_callback)
     
-    rclpy.spin(heart_beat)
+    rclpy.spin(sync_emulator)
 
     rclpy.shutdown()
 
