@@ -6,11 +6,11 @@ from fastcrc import crc16
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 
-from ssp_config import SSPConfig
+from config import Config
 
-class SSP(SSPConfig):
+class SSP(Config):
     def __init__(_ssp):
-        SSPConfig.__init__(_ssp)
+        Config.__init__(_ssp)
         
         _ssp.errCODE = 0
         
@@ -37,6 +37,7 @@ class SSP(SSPConfig):
             str(_ssp.cmdGM):0,
             str(_ssp.cmdGSC):0,
             str(_ssp.cmdSSC):8,
+            str(_ssp.cmdRCS):31,
             str(_ssp.cmdGIMG):1
         }
         

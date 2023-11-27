@@ -1,7 +1,7 @@
 import json
 import os
 
-class SSPConfig:
+class Config:
     def __init__(_cfg):
 
         # Load configuration data from 'ssp_config.json' file and set class attributes based on the data.
@@ -21,18 +21,29 @@ class SSPConfig:
         _cfg.typeCMD_FRAME = ssp_config["frame_types"]["type_cmd_frame"]
         _cfg.typeREPLY_FRAME = ssp_config["frame_types"]["type_reply_frame"]
 
-        # Indices Configuration
+        # SSP Frame Indices Configuration
         # This section defines the indices for different fields in SSP frames.
-        _cfg.idxSTART_FLAG = ssp_config["indicies"]["start_flag"]
-        _cfg.idxEND_FLAG = ssp_config["indicies"]["end_flag"]
-        _cfg.idxDEST_ADDR = ssp_config["indicies"]["dest_addr"]
-        _cfg.idxSRC_ADDR = ssp_config["indicies"]["src_addr"]
-        _cfg.idxCMD_ID = ssp_config["indicies"]["cmd_id"]
-        _cfg.idxDATA_LEN = ssp_config["indicies"]["data_len"]
-        _cfg.idxDATA_START = ssp_config["indicies"]["data_start"]
-        _cfg.idxCRC_0 = ssp_config["indicies"]["crc_0"]
-        _cfg.idxCRC_1 = ssp_config["indicies"]["crc_1"]
-
+        _cfg.idxSTART_FLAG = ssp_config["ssp_indicies"]["start_flag"]
+        _cfg.idxEND_FLAG = ssp_config["ssp_indicies"]["end_flag"]
+        _cfg.idxDEST_ADDR = ssp_config["ssp_indicies"]["dest_addr"]
+        _cfg.idxSRC_ADDR = ssp_config["ssp_indicies"]["src_addr"]
+        _cfg.idxCMD_ID = ssp_config["ssp_indicies"]["cmd_id"]
+        _cfg.idxDATA_LEN = ssp_config["ssp_indicies"]["data_len"]
+        _cfg.idxDATA_START = ssp_config["ssp_indicies"]["data_start"]
+        _cfg.idxCRC_0 = ssp_config["ssp_indicies"]["crc_0"]
+        _cfg.idxCRC_1 = ssp_config["ssp_indicies"]["crc_1"]
+        
+        # Payload Frame Indices Configuration
+        # This section defines the indices for different fields in Payload frames.
+        _cfg.idxCAM_ID = ssp_config["payload_indicies"]["cam_id"]
+        _cfg.idxTIME_ON = ssp_config["payload_indicies"]["time_on"]
+        _cfg.idxTIME_SNAP = ssp_config["payload_indicies"]["time_snap"]
+        _cfg.idxTIME_OFF = ssp_config["payload_indicies"]["time_off"]
+        _cfg.idxFPS = ssp_config["payload_indicies"]["fps"]
+        _cfg.idxEXP_TIME = ssp_config["payload_indicies"]["exp_time"]
+        _cfg.idxGAIN = ssp_config["payload_indicies"]["gain"]
+        _cfg.idxCOMPRESSION = ssp_config["payload_indicies"]["compression"]
+        
         # Subsystems Configuration
         # This section defines subsystem identifiers for SSP.
         _cfg.addrOBC = ssp_config["addresses"]["subsystems_addr"]["OBC"]

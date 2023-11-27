@@ -30,7 +30,7 @@ class CmdHandler(Node,SSP,LogLevel):
         _cmd.cmd_handler_service = _cmd.create_service(BusReply, 'cmd_srv', _cmd.service_handler)
         _cmd.publisher = _cmd.create_publisher(PldCmd,'/payloads',10)
         
-        _cmd.cmd = PldCmd()
+        _cmd.payloadCMD = PldCmd()
         
         _cmd.callbacks = {
             str(_cmd.cmdPING):_cmd.ping_callback,
@@ -119,7 +119,17 @@ class CmdHandler(Node,SSP,LogLevel):
         return res
     
     def rcs_callback(_cb,req,res):
-        pass
+        _cb.payloadCMD.cmd = req.cmd
+        _cb.payloadCMD.cam_id = req.data[_cb.idxCAM_ID]
+        _cb.payloadCMD.config = req.data[_cb.idxCAM_ID + 1:]
+        
+        _cb.publisher.publish(_cb.payloadCMD)
+        
+        res.cmd = _cb.rplyACK
+        res.data_len = 1
+        res.data = [req.cmd]
+            
+        return res
     
     def gimg_callback(_cb,req,res):        
         pass
