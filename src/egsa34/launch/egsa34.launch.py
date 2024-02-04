@@ -57,6 +57,6 @@ def generate_launch_description():
     ld.add_action(bus_interface_1)
     ld.add_action(cmd_handler)
     ld.add_action(sync_emulator)
-    ld.add_action(ximea)
+    # ld.add_action(ximea)
     
     return ld
